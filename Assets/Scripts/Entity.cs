@@ -6,6 +6,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected bool isEnemy;
     [SerializeField] protected bool isKing;
     [SerializeField] public enum Behavior {Neutral, Offense, Defense};
+    [SerializeField] public Behavior behavior;
 
     [SerializeField] protected int hp;
     [SerializeField] protected int maxHP;
@@ -16,6 +17,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected int mana;
     [SerializeField] protected int maxMana;
     [SerializeField] protected int cost;
+    [SerializeField] protected float range;
 
     public abstract bool GetIsActive(); // Récupère si un personnage est actif ou pas sur la carte (ie il fait rien ou il joue)
     public abstract void SetIsActive(bool newIsActive);
@@ -58,6 +60,10 @@ public abstract class Entity : MonoBehaviour
     // Coût
     public abstract int GetCost(); // Le coût à payer pour placer l'entity sur l'arène
     public abstract void SetCost();
+
+    // Portée
+    public abstract float GetRange(); 
+    public abstract void SetRange();
 
     // Pour les capacités spéciales : Les différentes capacités sont des components qui héritent de la classe "Capacité".
     // => Pour donner une capacité spéciale à une unité il faut lui donner le component (script) qui correspond à la capacité spéciale choisie

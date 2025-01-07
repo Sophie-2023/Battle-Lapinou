@@ -1626,7 +1626,7 @@ Transform:
   m_GameObject: {fileID: 762088488}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.008252444, y: 6.6, z: -9.310841}
+  m_LocalPosition: {x: -0.008252444, y: 3, z: -9.310841}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 1273847563}
   - component: {fileID: 1273847562}
   - component: {fileID: 1273847561}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1959,8 +1959,8 @@ Transform:
   m_GameObject: {fileID: 1273847560}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalPosition: {x: -0.4946, y: 0, z: 0}
+  m_LocalScale: {x: 6.9008894, y: 7, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3545,13 +3545,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Unit\xE9 1 Sophie"
       objectReference: {fileID: 0}
+    - target: {fileID: 3502529654636170412, guid: 58190a967ce6d134aa9edd8d0fa0874d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4507374688016227069, guid: 58190a967ce6d134aa9edd8d0fa0874d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.74
       objectReference: {fileID: 0}
     - target: {fileID: 4507374688016227069, guid: 58190a967ce6d134aa9edd8d0fa0874d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4507374688016227069, guid: 58190a967ce6d134aa9edd8d0fa0874d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3585,6 +3589,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4688902793127281860, guid: 58190a967ce6d134aa9edd8d0fa0874d, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 1895689728}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

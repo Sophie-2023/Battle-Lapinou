@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MoveUnit : MonoBehaviour
+public class B_MoveUnit : MonoBehaviour
 {
     private Camera _camera;
     [SerializeField] private LayerMask layerMask;
@@ -12,12 +12,7 @@ public class MoveUnit : MonoBehaviour
 
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        Ray ray = _camera.ScreenPointToRay(mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue))
-        {
-            Vector3 point = hit.point;
-        }
+ 
     }
 
     private void OnMouseDrag()

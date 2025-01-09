@@ -3476,6 +3476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnUnit: {fileID: 762088489}
+  money: 0
 --- !u!1001 &41051132710733039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3624,7 +3625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7387081233348660709, guid: 1b53bd44f0a6aee4fb87647204fc2f97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.3744
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 7387081233348660709, guid: 1b53bd44f0a6aee4fb87647204fc2f97, type: 3}
       propertyPath: m_LocalPosition.y

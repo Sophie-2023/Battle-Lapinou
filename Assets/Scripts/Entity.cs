@@ -59,11 +59,11 @@ public abstract class Entity : MonoBehaviour
 
     // Coût
     public abstract int GetCost(); // Le coût à payer pour placer l'entity sur l'arène
-    public abstract void SetCost();
+    public abstract void SetCost(int newCost);
 
     // Portée
     public abstract float GetRange(); 
-    public abstract void SetRange();
+    public abstract void SetRange(int newRange);
 
     // Pour les capacités spéciales : Les différentes capacités sont des components qui héritent de la classe "Capacité".
     // => Pour donner une capacité spéciale à une unité il faut lui donner le component (script) qui correspond à la capacité spéciale choisie

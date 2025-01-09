@@ -1,28 +1,45 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(BasicEntity))]
 public class Movement : MonoBehaviour
 {
-    private Vector3 directionGoal; //Vecteur unitaire pointant vers l'objectif de l'unité en fonction de son comportement (offense->roi adverse, neutral->unité ennemi la plus proche, defense->son propre roi)
-    private Vector3 direction; 
+    private Vector3 positionGoal; //Position de l'objectif de l'unité en fonction de son comportement (offense->roi adverse, neutral->unité ennemi la plus proche, defense->son propre roi)
     private Entity entitySelf;
     private float spd;
+    NavMeshAgent agent;
+    [SerializeField] private Vector3 defaultGoal = new Vector3(0,0,0);
+    [SerializeField] private float distChange = 1f; //Distance de changement, si la cible de l'unité bouge d'au moins cette distance par rapport à sa position initiale, on met à jour le pathfinding
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        direction = transform.forward;
         entitySelf = GetComponent<BasicEntity>();
         spd = entitySelf.GetSpeed();
+        agent = GetComponent<NavMeshAgent>();
+
+        agent.speed = spd;
+        UpdatePositionGoal();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateDirectionGoal();
+        UpdatePositionGoal();
+        float distPositionGoalTarget = (agent.destination - positionGoal).magnitude;
+        if (distPositionGoalTarget >= distChange)
+        {
+            if (agent.hasPath)
+            {
+                agent.ResetPath();
+            }
+            agent.SetDestination(positionGoal);
+        }
     }
 
-    private void UpdateDirectionGoal()
+    private void UpdatePositionGoal()
     {
         var entityObjectsList = FindObjectsOfType(typeof(BasicEntity));
         if (entitySelf.GetBehavior()==Entity.Behavior.Offense)
@@ -35,7 +52,7 @@ public class Movement : MonoBehaviour
                     if (entitySelf.GetIsEnemy()!=entityOther.GetIsEnemy())
                     {
                         var enemyKing = entity;
-                        directionGoal = (enemyKing.GetComponent<Transform>().position - transform.position).normalized;
+                        positionGoal = enemyKing.GetComponent<Transform>().position;
                         break;
                     }
                 }
@@ -49,7 +66,6 @@ public class Movement : MonoBehaviour
                 var entityOther = entity.GetComponent<BasicEntity>();
                 if (entitySelf.GetIsEnemy() != entityOther.GetIsEnemy())
                 {
-
                     var enemy = entity;
                     float dist = (enemy.GetComponent<Transform>().position - transform.position).magnitude;
                     if ((dist>0)&&(dist < minDistance))
@@ -59,7 +75,7 @@ public class Movement : MonoBehaviour
                     }
                 }
             }
-            directionGoal = (closestEnemy.GetComponent<Transform>().position - transform.position).normalized;
+            positionGoal = closestEnemy.GetComponent<Transform>().position;
         } else if (entitySelf.GetBehavior() == Entity.Behavior.Defense)
         {
             foreach (var entity in entityObjectsList)
@@ -70,7 +86,7 @@ public class Movement : MonoBehaviour
                     if (entitySelf.GetIsEnemy() == entityOther.GetIsEnemy())
                     {
                         var myKing = entity;
-                        directionGoal = (myKing.GetComponent<Transform>().position - transform.position).normalized;
+                        positionGoal = myKing.GetComponent<Transform>().position;
                         break;
                     }
                 }
@@ -78,7 +94,7 @@ public class Movement : MonoBehaviour
 
         } else
         {
-            directionGoal = transform.forward;
+            positionGoal = defaultGoal;
         }
     }
 }

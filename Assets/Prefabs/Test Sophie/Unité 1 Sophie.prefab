@@ -99,8 +99,10 @@ GameObject:
   - component: {fileID: 5793493554406632434}
   - component: {fileID: 3341042453884216665}
   - component: {fileID: 7438584941282016569}
+  - component: {fileID: 5466375113148784110}
   - component: {fileID: 4688902793127281860}
-  m_Layer: 0
+  - component: {fileID: -519894486002712379}
+  m_Layer: 7
   m_Name: "Unit\xE9 1 Sophie"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +225,33 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
+--- !u!114 &5466375113148784110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562151898157219974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63bad345825148246ac8dd3ece8c5407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActive: 0
+  isEnemy: 0
+  isKing: 0
+  behavior: 0
+  hp: 0
+  maxHP: 0
+  def: 0
+  speed: 0
+  attackSpeed: 0
+  attack: 0
+  mana: 0
+  maxMana: 0
+  cost: 10
+  range: 0
 --- !u!114 &4688902793127281860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,11 +264,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd51292b6234dd84eb24031f78b1e672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   unitShadow: {fileID: 3502529654636170412}
+--- !u!114 &-519894486002712379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562151898157219974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c4712d6edbd4f47980c64f17992534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chooseBehavior: {fileID: 0}
 --- !u!1 &3502529654636170412
 GameObject:
   m_ObjectHideFlags: 0

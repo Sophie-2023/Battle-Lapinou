@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         direction = transform.forward;
-        entitySelf = GetComponent<Entity>();
+        entitySelf = GetComponent<BasicEntity>();
         spd = entitySelf.GetSpeed();
     }
 
@@ -24,12 +24,12 @@ public class Movement : MonoBehaviour
 
     private void UpdateDirectionGoal()
     {
-        var entityObjectsList = FindObjectsOfType(typeof(Entity));
+        var entityObjectsList = FindObjectsOfType(typeof(BasicEntity));
         if (entitySelf.GetBehavior()==Entity.Behavior.Offense)
         {
             foreach (var entity in entityObjectsList)
             {
-                var entityOther = entity.GetComponent<Entity>();
+                var entityOther = entity.GetComponent<BasicEntity>();
                 if (entityOther.GetIsKing())
                 {
                     if (entitySelf.GetIsEnemy()!=entityOther.GetIsEnemy())
@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
             float minDistance = Mathf.Infinity;
             foreach (var entity in entityObjectsList)
             {
-                var entityOther = entity.GetComponent<Entity>();
+                var entityOther = entity.GetComponent<BasicEntity>();
                 if (entitySelf.GetIsEnemy() != entityOther.GetIsEnemy())
                 {
 
@@ -64,7 +64,7 @@ public class Movement : MonoBehaviour
         {
             foreach (var entity in entityObjectsList)
             {
-                var entityOther = entity.GetComponent<Entity>();
+                var entityOther = entity.GetComponent<BasicEntity>();
                 if (entityOther.GetIsKing())
                 {
                     if (entitySelf.GetIsEnemy() == entityOther.GetIsEnemy())

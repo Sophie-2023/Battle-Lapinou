@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class BoutiqueManager : MonoBehaviour
+public class B_BoutiqueManager : MonoBehaviour
 {
     [SerializeField] private Transform spawnUnit;
+    [SerializeField] private int money;
     void Start()
     {
         

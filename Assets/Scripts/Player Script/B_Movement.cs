@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(BasicEntity))]
-public class Movement : MonoBehaviour
+public class B_Movement : MonoBehaviour
 {
     private Vector3 positionGoal; //Position de l'objectif de l'unité en fonction de son comportement (offense->roi adverse, neutral->unité ennemi la plus proche, defense->son propre roi)
     private Entity entitySelf;

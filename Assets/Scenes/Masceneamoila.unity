@@ -348,7 +348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attack
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxMana
@@ -360,7 +360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -657,7 +657,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attack
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: isEnemy
@@ -669,11 +669,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: behavior
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -766,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attack
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: isEnemy
@@ -782,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1004,7 +1004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attack
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxMana
@@ -1016,7 +1016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1109,7 +1109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attack
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: isKing
@@ -1125,11 +1125,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: behavior
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1242,7 +1242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attack
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: isKing
@@ -1258,7 +1258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: attackSpeed
-      value: 3
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

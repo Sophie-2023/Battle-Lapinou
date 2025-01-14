@@ -11,8 +11,8 @@ public abstract class Entity : MonoBehaviour
     [SerializeField] protected int hp;
     [SerializeField] protected int maxHP;
     [SerializeField] protected int def;
-    [SerializeField] protected int speed;
-    [SerializeField] protected int attackSpeed;
+    [SerializeField] protected float speed;
+    [SerializeField] protected float attackSpeed;
     [SerializeField] protected int attack;
     [SerializeField] protected int mana;
     [SerializeField] protected int maxMana;
@@ -42,12 +42,12 @@ public abstract class Entity : MonoBehaviour
     public abstract void SetDef(int newDef);
 
     // Vitesse
-    public abstract int GetSpeed(); // La vitesse de déplacement
-    public abstract void SetSpeed(int newSpeed);
+    public abstract float GetSpeed(); // La vitesse de déplacement
+    public abstract void SetSpeed(float newSpeed);
 
     // Attaque
-    public abstract int GetAttackSpeed();
-    public abstract void SetAttackSpeed(int newAttackSpeed);
+    public abstract float GetAttackSpeed();
+    public abstract void SetAttackSpeed(float newAttackSpeed);
     public abstract int GetAttack();
     public abstract void SetAttack(int newAttack);
 
@@ -63,7 +63,7 @@ public abstract class Entity : MonoBehaviour
 
     // Portée
     public abstract float GetRange(); 
-    public abstract void SetRange(int newRange);
+    public abstract void SetRange(float newRange);
 
     // Pour les capacités spéciales : Les différentes capacités sont des components qui héritent de la classe "Capacité".
     // => Pour donner une capacité spéciale à une unité il faut lui donner le component (script) qui correspond à la capacité spéciale choisie

@@ -21,9 +21,14 @@ public class B_Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        displayHealthBar();
+    }
+
+    private void displayHealthBar()
+    {
         HP = entitySelf.GetHP();
         float scaleBarHP = ((HP * 1f) / (maxHP * 1f)) * scaleBar;
-        float lengthBarHP = ((HP*1f) / (maxHP*1f)) * lengthBar;
+        float lengthBarHP = ((HP * 1f) / (maxHP * 1f)) * lengthBar;
         float zBarHP = (lengthBar - lengthBarHP) / 2f;
 
         HealthBar.transform.localPosition = new Vector3(HealthBar.transform.localPosition.x, HealthBar.transform.localPosition.y, zBarHP);
@@ -35,5 +40,17 @@ public class B_Health : MonoBehaviour
 
         RedBar.transform.localPosition = new Vector3(RedBar.transform.localPosition.x, RedBar.transform.localPosition.y, zRedBar);
         RedBar.transform.localScale = new Vector3(RedBar.transform.localScale.x, RedBar.transform.localScale.y, scaleRedBar);
+    }
+
+    public void damage(int damage)
+    {
+        HP = entitySelf.GetHP();
+        if (damage<=HP)
+        {
+            entitySelf.SetHP(HP-damage);
+        } else
+        {
+            entitySelf.SetHP(0);
+        }
     }
 }

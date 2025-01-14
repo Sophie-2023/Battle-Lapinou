@@ -9,7 +9,7 @@ public class BasicEntity : Entity
         return this.attack;
     }
 
-    public override int GetAttackSpeed()
+    public override float GetAttackSpeed()
     {
         return this.attackSpeed;
     }
@@ -69,7 +69,7 @@ public class BasicEntity : Entity
         return this.range;
     }
 
-    public override int GetSpeed()
+    public override float GetSpeed()
     {
         return this.speed;
     }
@@ -79,7 +79,7 @@ public class BasicEntity : Entity
         this.attack = newAttack;
     }
 
-    public override void SetAttackSpeed(int newAttackSpeed)
+    public override void SetAttackSpeed(float newAttackSpeed)
     {
         this.attackSpeed = newAttackSpeed;
     }
@@ -134,12 +134,12 @@ public class BasicEntity : Entity
         this.maxMana = newMaxMana;
     }
 
-    public override void SetRange(int newRange)
+    public override void SetRange(float newRange)
     {
         this.range = newRange;
     }
 
-    public override void SetSpeed(int newSpeed)
+    public override void SetSpeed(float newSpeed)
     {
         this.speed = newSpeed;
     }

@@ -136,6 +136,9 @@ GameObject:
   - component: {fileID: 8428224028284823659}
   - component: {fileID: 2263816896561948847}
   - component: {fileID: 6677783565807256452}
+  - component: {fileID: 8043601972822109713}
+  - component: {fileID: 6201805106997818894}
+  - component: {fileID: 6430963752227773067}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -166,7 +169,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124356284390498889}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &4749479263426761390
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -293,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf84b90df5ef314f87228b8ec257058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distCrit: 3
   defaultGoal: {x: 0, y: 0, z: 0}
   distChange: 1
 --- !u!54 &2263816896561948847
@@ -338,6 +342,43 @@ MonoBehaviour:
   RedBar: {fileID: 7159518455410362737}
   scaleBar: 0.1
   lengthBar: 1
+--- !u!114 &8043601972822109713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124356284390498889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace76cb99982f9142a8f393faa988be1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6201805106997818894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124356284390498889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e8fc2d531b8ef4e97e134913a53583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathDuration: 1
+--- !u!114 &6430963752227773067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124356284390498889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff5f296798bab640a1c7dceb64368a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5063510868767968699
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c3c57d4cc3ab0439fef3f8de5d87cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hauteurUI: 1.5
+  hauteurUI: 1.8
 --- !u!1 &7159518455410362737
 GameObject:
   m_ObjectHideFlags: 0

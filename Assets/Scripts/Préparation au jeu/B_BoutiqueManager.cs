@@ -24,7 +24,8 @@ public class B_BoutiqueManager : MonoBehaviour
         }
         else
         {
-            Instantiate(unit, spawnUnit.position, Quaternion.identity);
+            GameObject newUnit = Instantiate(unit, spawnUnit.position, Quaternion.identity);
+            B_LevelManager.Instance.AddToPlayerArmy(newUnit);
             amountMoney -= unit.GetComponent<BasicEntity>().GetCost();
             if (amountMoney < 0) { amountMoney = 0; }
             amountMoneyText.text = amountMoney.ToString() + " coins";

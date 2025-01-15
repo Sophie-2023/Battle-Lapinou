@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: mana
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxHP
@@ -641,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: mana
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxHP
@@ -750,7 +750,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: mana
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxHP
@@ -988,7 +988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: mana
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxHP
@@ -1093,7 +1093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: mana
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxHP
@@ -1226,7 +1226,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: mana
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8410184704100059050, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: maxHP

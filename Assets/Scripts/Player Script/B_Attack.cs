@@ -37,6 +37,8 @@ public class B_Attack : MonoBehaviour
             {
                 var entityOther = hit.collider.gameObject.GetComponent<BasicEntity>();
                 var otherHealth = hit.collider.gameObject.GetComponent<B_Health>();
+                var otherMana = hit.collider.gameObject.GetComponent<B_Mana>();
+                var selfMana = GetComponent<B_Mana>();
                 if (entityOther.GetIsEnemy()!=entitySelf.GetIsEnemy())
                 {
                     int atk = entitySelf.GetAttack();
@@ -50,6 +52,8 @@ public class B_Attack : MonoBehaviour
                         damage = 0;
                     }
                     otherHealth.damage(damage);
+                    otherMana.IncreaseMana();
+                    selfMana.IncreaseMana();
                     break;
                 }
             }

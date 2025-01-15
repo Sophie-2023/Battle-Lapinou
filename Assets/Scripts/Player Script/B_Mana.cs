@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(BasicEntity))]
@@ -10,6 +11,8 @@ public class B_Mana : MonoBehaviour
     private int maxMana;
     [SerializeField] private float scaleBar = 0.1f;
     [SerializeField] private float lengthBar = 1f;
+    [SerializeField] private int manaIncreaseAmount = 5;
+    [SerializeField] private float increaseManaDuration = 0.3f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +25,7 @@ public class B_Mana : MonoBehaviour
     void Update()
     {
         displayManaBar();
+        SpecialAttack();
     }
 
     private void displayManaBar()
@@ -40,5 +44,41 @@ public class B_Mana : MonoBehaviour
 
         RedBar.transform.localPosition = new Vector3(RedBar.transform.localPosition.x, RedBar.transform.localPosition.y, zRedBar);
         RedBar.transform.localScale = new Vector3(RedBar.transform.localScale.x, RedBar.transform.localScale.y, scaleRedBar);
+    }
+
+    public void IncreaseMana()
+    {
+        Mana = entitySelf.GetMana();
+        if (Mana+manaIncreaseAmount>=maxMana)
+        {
+            Mana = maxMana;
+        } else
+        {
+            Mana += manaIncreaseAmount;
+        }
+        StartCoroutine(ChangeManaCoroutine(Mana));
+    }
+
+    private void SpecialAttack()
+    {
+        Mana = entitySelf.GetMana();
+        if (Mana>=maxMana)
+        {
+            StartCoroutine(ChangeManaCoroutine(0));
+            Debug.Log("Attaque spécial !");
+        }
+    }
+
+    private IEnumerator ChangeManaCoroutine(int newMana)
+    {
+        float t = 0;
+        int actualMana = entitySelf.GetMana();
+        while (t<1)
+        {
+            t += Time.deltaTime / increaseManaDuration;
+            int mana = Mathf.RoundToInt(Mathf.Lerp(actualMana, newMana, t));
+            entitySelf.SetMana(mana);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

@@ -398,7 +398,8 @@ MonoBehaviour:
   ManaBar: {fileID: 5400137120067934970}
   RedBar: {fileID: 3350782666440354726}
   scaleBar: 0.07
-  lengthBar: 1
+  lengthBar: 0.7
+  manaIncreaseAmount: 10
 --- !u!1 &3350782666440354726
 GameObject:
   m_ObjectHideFlags: 0

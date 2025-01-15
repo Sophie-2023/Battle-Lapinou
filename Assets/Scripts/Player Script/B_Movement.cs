@@ -64,9 +64,11 @@ public class B_Movement : MonoBehaviour
                             if (distBetweenSelfAndClosestEnemy < distCrit)
                             {
                                 positionGoal = closestEnemyPosition;
+                                agent.updateRotation = false;
                                 transform.LookAt(closestEnemyPosition);
                             } else
                             {
+                                agent.updateRotation = true;
                                 positionGoal = transform.position;
                             }
                         }
@@ -80,7 +82,11 @@ public class B_Movement : MonoBehaviour
             float distBetweenSelfAndClosestEnemy = (transform.position - positionGoal).magnitude;
             if (distBetweenSelfAndClosestEnemy < distCrit)
             {
+                agent.updateRotation = false;
                 transform.LookAt(positionGoal);
+            } else
+            {
+                agent.updateRotation = true;
             }
         } else if (entitySelf.GetBehavior() == Entity.Behavior.Defense)
         {
@@ -104,10 +110,12 @@ public class B_Movement : MonoBehaviour
                             if (distBetweenSelfAndClosestEnemy < distCrit)
                             {
                                 positionGoal = closestEnemyPosition;
+                                agent.updateRotation = false;
                                 transform.LookAt(closestEnemyPosition);
                             }
                             else
                             {
+                                agent.updateRotation = true;
                                 positionGoal = transform.position;
                             }
                         }

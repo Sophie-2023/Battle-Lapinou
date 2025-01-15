@@ -28,12 +28,12 @@ public class B_Attack : MonoBehaviour
     }
 
     private IEnumerator AttackCoroutine()
-    {
-        RaycastHit hit;
+    {    
         while (alive)
         {
             yield return new WaitForSeconds(attackspd);
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, range, LayerMask.GetMask("Character")))
+            RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, range, LayerMask.GetMask("Character"));
+            foreach (RaycastHit hit in hits)
             {
                 var entityOther = hit.collider.gameObject.GetComponent<BasicEntity>();
                 var otherHealth = hit.collider.gameObject.GetComponent<B_Health>();
@@ -50,14 +50,9 @@ public class B_Attack : MonoBehaviour
                         damage = 0;
                     }
                     otherHealth.damage(damage);
+                    break;
                 }
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * range);
     }
 }

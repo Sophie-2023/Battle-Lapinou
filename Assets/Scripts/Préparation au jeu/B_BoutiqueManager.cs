@@ -16,9 +16,10 @@ public class B_BoutiqueManager : MonoBehaviour
         
     }
 
-    public void CreateUnit(GameObject unit)
+    public void BuyUnit(GameObject unit)
     {
-        if (amountMoney <= 0)
+        int unitPrice = unit.GetComponent<BasicEntity>().GetCost();
+        if (amountMoney <= unitPrice)
         {
             Debug.Log("Vous n'avez pas assez d'argent !");
         }
@@ -26,9 +27,21 @@ public class B_BoutiqueManager : MonoBehaviour
         {
             GameObject newUnit = Instantiate(unit, spawnUnit.position, Quaternion.identity);
             B_LevelManager.Instance.AddToPlayerArmy(newUnit);
-            amountMoney -= unit.GetComponent<BasicEntity>().GetCost();
+            amountMoney -= unitPrice;
             if (amountMoney < 0) { amountMoney = 0; }
             amountMoneyText.text = amountMoney.ToString() + " coins";
+        }
+    }
+
+    public void SellUnit()
+    {
+        GameObject unitToRemove = B_LevelManager.Instance.GetSelectedUnit();
+        if (unitToRemove != null)
+        {
+            amountMoney += unitToRemove.GetComponent<BasicEntity>().GetCost();
+            amountMoneyText.text = amountMoney.ToString() + " coins";
+            B_LevelManager.Instance.RemoveFromPlayerArmy();
+            Destroy(unitToRemove);
         }
     }
 }

@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class B_LevelManager : MonoBehaviour
 {
-    private List<GameObject> playerArmy = new List<GameObject>();
+    [SerializeField] private List<GameObject> playerArmy = new List<GameObject>();
+    [SerializeField] private GameObject selectedUnit;
 
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
@@ -30,22 +31,32 @@ public class B_LevelManager : MonoBehaviour
         
     }
 
+    public void SetSelectedUnit(GameObject unit)
+    {
+        selectedUnit = unit;
+    }
+
+    public GameObject GetSelectedUnit()
+    {
+        return selectedUnit;
+    }
+
     // Méthode pour ajouter une unité au playerArmy
     public void AddToPlayerArmy(GameObject unit)
     {
         playerArmy.Add(unit);
     }
 
-    // Méthode pour retirer un GameObject de la liste playerArmy
-    public void RemoveFromPlayerArmy(GameObject unit)
+    // Méthode pour retirer une unité de playerArmy (l'unité à retirer est dans la variable selectedUnit)
+    public void RemoveFromPlayerArmy()
     {
-        if (playerArmy.Contains(unit))
+        if (playerArmy.Contains(selectedUnit))
         {
-            playerArmy.Remove(unit);
+            playerArmy.Remove(selectedUnit);
         }
         else
         {
-            Debug.LogWarning($"{unit.name} n'est pas dans playerArmy !");
+            Debug.LogWarning($"{selectedUnit.name} n'est pas dans playerArmy !");
         }
     }
 
@@ -55,6 +66,5 @@ public class B_LevelManager : MonoBehaviour
         {
             unit.GetComponent<BasicEntity>().SetIsActive(true);
         }
-        Debug.Log("Les unités sont activées !");
     }
 }

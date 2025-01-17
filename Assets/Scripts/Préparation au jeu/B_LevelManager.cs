@@ -4,7 +4,8 @@ using UnityEngine;
 public class B_LevelManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> playerArmy = new List<GameObject>();
-    [SerializeField] private GameObject selectedUnit;
+    [SerializeField] private GameObject selectedUnit; // L'unité séléctionnée par le joueur lors de la préparation de la partie
+    [SerializeField] private GameObject king;
 
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
@@ -41,13 +42,23 @@ public class B_LevelManager : MonoBehaviour
         return selectedUnit;
     }
 
+    public void SetKing(GameObject unit)
+    {
+        king = unit;
+    }
+
+    public GameObject GetKing() 
+    { 
+        return king; 
+    }
+
     // Méthode pour ajouter une unité au playerArmy
     public void AddToPlayerArmy(GameObject unit)
     {
         playerArmy.Add(unit);
     }
 
-    // Méthode pour retirer une unité de playerArmy (l'unité à retirer est dans la variable selectedUnit)
+    // Méthode pour retirer une unité de playerArmy (l'unité à retirer est dans la variable selectedUnit (séléctionnée par le joueur avec clic gauche de la souris))
     public void RemoveFromPlayerArmy()
     {
         if (playerArmy.Contains(selectedUnit))

@@ -7,7 +7,7 @@ public class B_MoveUnit : MonoBehaviour
     private Camera _camera;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private GameObject unitShadow;
-    [SerializeField] private float clickDuration = 0.1f;
+    [SerializeField] private float clickDuration = 0.2f;
     [SerializeField] private bool canBeMoved = false;
     private Coroutine longClickCoroutine; // Référence à la coroutine en cours
     void Start()

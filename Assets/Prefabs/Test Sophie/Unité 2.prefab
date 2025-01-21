@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -9142673510250781718}
   - component: {fileID: -3339996567028427320}
   m_Layer: 3
-  m_Name: "Unit\xE9 2 Sophie"
+  m_Name: "Unit\xE9 2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   unitShadow: {fileID: 4978494805592383817}
-  clickDuration: 0.1
+  clickDuration: 0.2
   canBeMoved: 0
 --- !u!114 &-9142673510250781718
 MonoBehaviour:

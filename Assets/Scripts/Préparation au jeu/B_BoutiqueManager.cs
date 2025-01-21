@@ -1,20 +1,31 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class B_BoutiqueManager : MonoBehaviour
 {
     private GameObject unitToCreate;
-    [SerializeField] private Transform spawnUnit;
     [SerializeField] private int amountMoney;
-    [SerializeField] private TextMeshProUGUI amountMoneyText;
 
     private Camera _camera;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask obstacleLayerMask;
+
+    [Header("UI Elements")]
+    [SerializeField] private B_Boutique_UI_Manager b_UI_Manager;
+    [SerializeField] private Transform buttonParent; // Conteneur des boutons
+    [SerializeField] private Button buttonPrefab;    // Bouton de modèle à cloner
+    [SerializeField] private TextMeshProUGUI amountMoneyText;
+
+    [Header("Unités à vendre")]
+    [SerializeField] private List<GameObject> unitsToSell;   // Liste des unités disponibles à la vente
+
     void Start()
     {
         _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         amountMoneyText.text = amountMoney.ToString() + " coins";
+        PopulateShop();
     }
 
     void Update()
@@ -31,23 +42,38 @@ public class B_BoutiqueManager : MonoBehaviour
                     if (unitToCreate != null)
                     {
                         Vector3 position = new Vector3(hit.point.x, 3, hit.point.z);
-                        CreateUnit(position);
+                        BuyUnit(position);
                     }
                 }
             }
         }
     }
 
-    public void BuyUnit(GameObject unit)
+    private void PopulateShop()
     {
-        int unitPrice = unit.GetComponent<BasicEntity>().GetCost();
-        if (amountMoney <= unitPrice)
+        foreach (GameObject unit in unitsToSell)
+        {
+            // Crée un nouveau bouton à partir du prefab
+            Button newButton = Instantiate(buttonPrefab, buttonParent);
+
+            TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = $"{unit.name} - {unit.GetComponent<BasicEntity>().GetCost()} Coins";
+
+            newButton.onClick.AddListener(() => ChooseUnit(unit));
+            newButton.onClick.AddListener(() => b_UI_Manager.SetUnitButtonColor(newButton));
+        }
+    }
+
+    private void BuyUnit(Vector3 position)
+    {
+        int unitPrice = unitToCreate.GetComponent<BasicEntity>().GetCost();
+        if (amountMoney < unitPrice)
         {
             Debug.Log("Vous n'avez pas assez d'argent !");
         }
         else
         {
-            GameObject newUnit = Instantiate(unit, spawnUnit.position, Quaternion.identity);
+            GameObject newUnit = Instantiate(unitToCreate, position, Quaternion.identity);
             B_LevelManager.Instance.AddToPlayerArmy(newUnit);
             amountMoney -= unitPrice;
             if (amountMoney < 0) { amountMoney = 0; }
@@ -67,25 +93,9 @@ public class B_BoutiqueManager : MonoBehaviour
         }
     }
 
-    public void ChooseUnit(GameObject unit)
+    private void ChooseUnit(GameObject unit)
     {
         unitToCreate = unit;
     }
 
-    private void CreateUnit(Vector3 position)
-    {
-        int unitPrice = unitToCreate.GetComponent<BasicEntity>().GetCost();
-        if (amountMoney <= unitPrice)
-        {
-            Debug.Log("Vous n'avez pas assez d'argent !");
-        }
-        else
-        {
-            GameObject newUnit = Instantiate(unitToCreate, position, Quaternion.identity);
-            B_LevelManager.Instance.AddToPlayerArmy(newUnit);
-            amountMoney -= unitPrice;
-            if (amountMoney < 0) { amountMoney = 0; }
-            amountMoneyText.text = amountMoney.ToString() + " coins";
-        }
-    }
 }

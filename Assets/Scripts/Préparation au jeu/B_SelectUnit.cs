@@ -7,6 +7,7 @@ public class B_SelectUnit : MonoBehaviour
     private Camera _camera;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private GameObject choosePropertiesPanel;
+    [SerializeField] private B_Boutique_UI_Manager b_UI_manager;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class B_SelectUnit : MonoBehaviour
         {
             outline.enabled = true;
         }
+        b_UI_manager.SetButtonColor();
         choosePropertiesPanel.SetActive(true);
     }
 }

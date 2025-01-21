@@ -93,11 +93,24 @@ public class B_LevelManager : MonoBehaviour
         }
     }
 
-    public void SetActivePlayerArmy()
+    private void SetActivePlayerArmy()
     {
         foreach (GameObject unit in playerArmy)
         {
             unit.GetComponent<BasicEntity>().SetIsActive(true);
+        }
+    }
+
+    public void Play()
+    {
+        if (king == null)
+        {
+            Debug.Log("Vous n'avez pas encore choisi le roi !");
+        }
+        else
+        {
+            SetActivePlayerArmy();
+            Debug.Log("Play !");
         }
     }
 }

@@ -38,6 +38,7 @@ public class B_SelectUnit : MonoBehaviour
             oldOutline.enabled = false;
         }
         B_LevelManager.Instance.SetSelectedUnit(unit);
+        B_LevelManager.Instance.SetCrown(unit.transform.Find("Couronne").gameObject);
         if (unit.TryGetComponent<Outline>(out Outline outline))
         {
             outline.enabled = true;

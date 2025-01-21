@@ -6,6 +6,8 @@ public class B_LevelManager : MonoBehaviour
     [SerializeField] private List<GameObject> playerArmy = new List<GameObject>();
     [SerializeField] private GameObject selectedUnit; // L'unité séléctionnée par le joueur lors de la préparation de la partie
     [SerializeField] private GameObject king;
+    [SerializeField] private GameObject crownOfSelectedUnit; // La couronne en enfant de l'unité séléctionné
+    [SerializeField] private GameObject kingCrown;
 
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
@@ -50,6 +52,26 @@ public class B_LevelManager : MonoBehaviour
     public GameObject GetKing() 
     { 
         return king; 
+    }
+
+    public GameObject GetCrown()
+    {
+        return crownOfSelectedUnit;
+    }
+
+    public void SetCrown(GameObject unit) 
+    {
+        crownOfSelectedUnit = unit;
+    }
+
+    public void SetKingCrown(GameObject unit)
+    {
+        kingCrown = unit;
+    }
+
+    public GameObject GetKingCrown()
+    {
+        return kingCrown;
     }
 
     // Méthode pour ajouter une unité au playerArmy

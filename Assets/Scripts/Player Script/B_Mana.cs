@@ -9,6 +9,7 @@ public class B_Mana : MonoBehaviour
     private Entity entitySelf;
     private int Mana;
     private int maxMana;
+    private B_SetClass classScript;
     [SerializeField] private float scaleBar = 0.1f;
     [SerializeField] private float lengthBar = 1f;
     [SerializeField] private int manaIncreaseAmount = 5;
@@ -19,6 +20,7 @@ public class B_Mana : MonoBehaviour
         entitySelf = GetComponent<BasicEntity>();
         Mana = entitySelf.GetMana();
         maxMana = entitySelf.GetMaxMana();
+        classScript = GetComponent<B_SetClass>();
     }
 
     // Update is called once per frame
@@ -65,6 +67,11 @@ public class B_Mana : MonoBehaviour
         if (Mana>=maxMana)
         {
             StartCoroutine(ChangeManaCoroutine(0));
+            if (classScript.GetClass().specialAttackScript is SpecialAttack specialAttack)
+            {
+                specialAttack.Execute(entitySelf);
+            } 
+            
             Debug.Log("Attaque spécial !");
         }
     }

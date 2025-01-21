@@ -53,4 +53,17 @@ public class B_Health : MonoBehaviour
             entitySelf.SetHP(0);
         }
     }
+
+    public void heal()
+    //heal 50% des pv
+    {
+        HP = entitySelf.GetHP();
+        if (HP>=(maxHP/2))
+        {
+            entitySelf.SetHP(maxHP);
+        } else
+        {
+            entitySelf.SetHP(HP + (maxHP/2));
+        }
+    }
 }

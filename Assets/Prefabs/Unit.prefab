@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 6201805106997818894}
   - component: {fileID: 6430963752227773067}
   - component: {fileID: 8848861663364881715}
+  - component: {fileID: 4469200293321246524}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -399,7 +400,30 @@ MonoBehaviour:
   RedBar: {fileID: 3350782666440354726}
   scaleBar: 0.07
   lengthBar: 0.7
-  manaIncreaseAmount: 10
+  manaIncreaseAmount: 20
+  increaseManaDuration: 0.3
+--- !u!114 &4469200293321246524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124356284390498889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae6e92a1118c4443924017c98e89c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClassList:
+  - {fileID: 11400000, guid: 673d72ea1dadde54ba8290f01850dda1, type: 2}
+  - {fileID: 11400000, guid: 02426fd27c70b0242941fa08b0299158, type: 2}
+  - {fileID: 11400000, guid: 5cbcd523d98747b4aa7733a21f3460dc, type: 2}
+  - {fileID: 11400000, guid: 42a9569270c52fc42867ecdb15797c4c, type: 2}
+  - {fileID: 11400000, guid: 8fb2e3b021eb52f4fad1129c2263a681, type: 2}
+  - {fileID: 11400000, guid: 28c1fda5245d5564b919b74096bd9ac3, type: 2}
+  - {fileID: 11400000, guid: 53060b14841b7eb42bb5734ce409b716, type: 2}
+  - {fileID: 11400000, guid: 6fc1aa772b38c414aaa9c1b634e735c4, type: 2}
+  unitClass: 0
 --- !u!1 &3350782666440354726
 GameObject:
   m_ObjectHideFlags: 0

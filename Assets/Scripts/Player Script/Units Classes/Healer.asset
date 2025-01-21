@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e05e2b8699ed49469dcc697c35db6c8, type: 3}
+  m_Name: Healer
+  m_EditorClassIdentifier: 
+  unitClass: 3
+  maxHP: 90
+  def: 2
+  speed: 2.8
+  attackSpeed: 2
+  attack: 25
+  maxMana: 70
+  cost: 0
+  range: 3
+  specialAttackScript: {fileID: 8110158697232128417, guid: 824343381dba9d443a1fc5a5e7d62868, type: 3}

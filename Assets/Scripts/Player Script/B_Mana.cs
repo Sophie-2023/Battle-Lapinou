@@ -18,16 +18,18 @@ public class B_Mana : MonoBehaviour
     void Start()
     {
         entitySelf = GetComponent<BasicEntity>();
-        Mana = entitySelf.GetMana();
-        maxMana = entitySelf.GetMaxMana();
         classScript = GetComponent<B_SetClass>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        displayManaBar();
-        SpecialAttack();
+        if (entitySelf.GetIsActive())
+        {
+            maxMana = entitySelf.GetMaxMana();
+            displayManaBar();
+            SpecialAttack();
+        }
     }
 
     private void displayManaBar()

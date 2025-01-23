@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 6430963752227773067}
   - component: {fileID: 8848861663364881715}
   - component: {fileID: 4469200293321246524}
+  - component: {fileID: 2007258124507758529}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Untagged
@@ -425,6 +426,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 42a9569270c52fc42867ecdb15797c4c, type: 2}
   unitClass: 1
   projectile: {fileID: 1505853167991705164, guid: 54408b5baffaea14e839a80fbb7fd523, type: 3}
+--- !u!114 &2007258124507758529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124356284390498889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff7d88f41306c74d83dd3e5eaa8ed65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matAllies: {fileID: 2100000, guid: d7518182b36575542b54ca8abd386a0f, type: 2}
+  matEnemy: {fileID: 2100000, guid: 659024e6c08854b479d25ea02329aee3, type: 2}
 --- !u!1 &3350782666440354726
 GameObject:
   m_ObjectHideFlags: 0

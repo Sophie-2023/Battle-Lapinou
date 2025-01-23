@@ -19,5 +19,5 @@ MonoBehaviour:
   attackSpeed: 1
   attack: 30
   maxMana: 40
-  cost: 0
+  cost: 8
   range: 1.5

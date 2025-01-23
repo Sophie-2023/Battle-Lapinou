@@ -14,14 +14,16 @@ public class B_Health : MonoBehaviour
     void Start()
     {
         entitySelf = GetComponent<BasicEntity>();
-        HP = entitySelf.GetHP();
-        maxHP = entitySelf.GetMaxHP();
     }
 
     // Update is called once per frame
     void Update()
     {
-        displayHealthBar();
+        if (entitySelf.GetIsActive() )
+        {
+            maxHP = entitySelf.GetMaxHP();
+            displayHealthBar();
+        }
     }
 
     private void displayHealthBar()

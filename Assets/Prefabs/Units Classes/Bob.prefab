@@ -797,6 +797,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5cbcd523d98747b4aa7733a21f3460dc, type: 2}
   - {fileID: 11400000, guid: 42a9569270c52fc42867ecdb15797c4c, type: 2}
   unitClass: 7
+  projectile: {fileID: 0}
 --- !u!114 &7480766686321653723
 MonoBehaviour:
   m_ObjectHideFlags: 0

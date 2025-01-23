@@ -57,7 +57,8 @@ public class B_BoutiqueManager : MonoBehaviour
             Button newButton = Instantiate(buttonPrefab, buttonParent);
 
             TextMeshProUGUI buttonText = newButton.GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = $"{unit.name} - {unit.GetComponent<BasicEntity>().GetCost()} Coins";
+            buttonText.fontSize = 35;
+            buttonText.text = $"{unit.name} \n {unit.GetComponent<BasicEntity>().GetCost()} Coins";
 
             newButton.onClick.AddListener(() => ChooseUnit(unit));
             newButton.onClick.AddListener(() => b_UI_Manager.SetUnitButtonColor(newButton));

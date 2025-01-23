@@ -10,9 +10,11 @@ public class B_MoveUnit : MonoBehaviour
     [SerializeField] private float clickDuration = 0.2f;
     [SerializeField] private bool canBeMoved = false;
     private Coroutine longClickCoroutine; // Référence à la coroutine en cours
+    private BasicEntity basicEntity;
     void Start()
     {
         _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        basicEntity = gameObject.GetComponent<BasicEntity>();
     }
 
     void Update()
@@ -22,15 +24,18 @@ public class B_MoveUnit : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (!canBeMoved && longClickCoroutine == null)
+        if (basicEntity.GetIsActive() == false)
         {
-            longClickCoroutine = StartCoroutine(LongClick());
-        }
+            if (!canBeMoved && longClickCoroutine == null)
+            {
+                longClickCoroutine = StartCoroutine(LongClick());
+            }
 
-        if (canBeMoved)
-        {
-            unitShadow.SetActive(true);
-            MoveUnit();
+            if (canBeMoved)
+            {
+                unitShadow.SetActive(true);
+                MoveUnit();
+            }
         }
     }
 

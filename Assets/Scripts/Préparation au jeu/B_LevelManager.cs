@@ -9,6 +9,8 @@ public class B_LevelManager : MonoBehaviour
     [SerializeField] private GameObject crownOfSelectedUnit; // La couronne en enfant de l'unité séléctionné
     [SerializeField] private GameObject kingCrown;
 
+    [SerializeField] private bool isGameStarted = false;
+
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
 
@@ -32,6 +34,11 @@ public class B_LevelManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool GetIsGameStarted()
+    {
+        return isGameStarted;
     }
 
     public void SetSelectedUnit(GameObject unit)
@@ -95,9 +102,13 @@ public class B_LevelManager : MonoBehaviour
 
     private void SetActivePlayerArmy()
     {
+        selectedUnit = null;
+        crownOfSelectedUnit = null;
         foreach (GameObject unit in playerArmy)
         {
             unit.GetComponent<BasicEntity>().SetIsActive(true);
+            unit.GetComponent<B_MoveUnit>().enabled = false;
+            unit.GetComponent<Outline>().enabled = false;
         }
     }
 
@@ -109,6 +120,7 @@ public class B_LevelManager : MonoBehaviour
         }
         else
         {
+            isGameStarted = true;
             SetActivePlayerArmy();
             Debug.Log("Play !");
         }

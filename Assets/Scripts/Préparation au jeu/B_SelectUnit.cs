@@ -23,9 +23,10 @@ public class B_SelectUnit : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, layerMask)) // Les unités alliées et ennemies ont le layer "Character"
             {
                 GameObject unit = hit.collider.gameObject;
-                if (!unit.GetComponent<BasicEntity>().GetIsEnemy())
+                BasicEntity basicEntity = unit.GetComponent<BasicEntity>();
+                if (!basicEntity.GetIsEnemy() && basicEntity.GetIsActive() == false)
                 {
-                    SelectUnit(hit.collider.gameObject);
+                    SelectUnit(unit);
                 }
             }
         }

@@ -1,9 +1,9 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class B_HealAllies : MonoBehaviour, SpecialAttack
+public class B_DrinkMana : MonoBehaviour, SpecialAttack
 {
-    private float healrange = 3;
+    private float drinkrange = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,19 +18,19 @@ public class B_HealAllies : MonoBehaviour, SpecialAttack
 
     public void Execute(Entity entityself)
     {
-        Debug.Log("Attaque spéciale : Soin !");
-        //L'unité soigne les alliés à porté
+        //L'unité baisse le mana des ennemis à porté
+        Debug.Log("Attaque spéciale : Cuite de Mana !");
         var entityObjectsList = FindObjectsOfType(typeof(BasicEntity));
         foreach (var entityobj in entityObjectsList)
         {
             BasicEntity entityother = entityobj.GetComponent<BasicEntity>();
-            B_Health healthOther = entityobj.GetComponent<B_Health>();
-            if (entityother.GetIsEnemy()==entityself.GetIsEnemy())
+            B_Mana manaOther = entityobj.GetComponent<B_Mana>();
+            if (entityother.GetIsEnemy() != entityself.GetIsEnemy())
             {
                 float dist = (entityother.transform.position - entityself.transform.position).magnitude;
-                if ((dist < healrange)&&(dist>0)) 
+                if ((dist < drinkrange) && (dist > 0))
                 {
-                    healthOther.heal();
+                    manaOther.manaDrained();
                 }
             }
         }

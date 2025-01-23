@@ -19,5 +19,4 @@ public class B_UnitClass : ScriptableObject
     public int maxMana;
     public int cost;
     public float range;
-    public MonoBehaviour specialAttackScript;
 }

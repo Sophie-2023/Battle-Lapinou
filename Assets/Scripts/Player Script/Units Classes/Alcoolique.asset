@@ -21,4 +21,4 @@ MonoBehaviour:
   maxMana: 50
   cost: 0
   range: 2
-  specialAttackScript: {fileID: 0}
+  specialAttackScript: {fileID: 1852264423312683146, guid: 919946a863d51144cbb89b92db9251fb, type: 3}

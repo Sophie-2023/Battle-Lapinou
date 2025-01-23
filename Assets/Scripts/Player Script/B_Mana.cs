@@ -67,12 +67,22 @@ public class B_Mana : MonoBehaviour
         if (Mana>=maxMana)
         {
             StartCoroutine(ChangeManaCoroutine(0));
-            if (classScript.GetClass().specialAttackScript is SpecialAttack specialAttack)
+            if (classScript.GetSpecialAttack() is SpecialAttack specialAttack)
             {
                 specialAttack.Execute(entitySelf);
             } 
-            
-            Debug.Log("Attaque spécial !");
+        }
+    }
+
+    public void manaDrained()
+    {
+        Mana = entitySelf.GetMana();
+        if (Mana<=(maxMana/2))
+        {
+            StartCoroutine(ChangeManaCoroutine(0));
+        } else
+        {
+            StartCoroutine(ChangeManaCoroutine(Mana - (maxMana/2) ));
         }
     }
 

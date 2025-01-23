@@ -66,4 +66,10 @@ public class B_Health : MonoBehaviour
             entitySelf.SetHP(HP + (maxHP/2));
         }
     }
+
+    public void halfHP()
+    {
+        HP = entitySelf.GetHP();
+        entitySelf.SetHP(HP/2);
+    }
 }

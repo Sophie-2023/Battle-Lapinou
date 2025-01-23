@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.UI.Image;
 
 [RequireComponent(typeof(BasicEntity))]
 public class B_Attack : MonoBehaviour
@@ -33,28 +34,33 @@ public class B_Attack : MonoBehaviour
         {
             yield return new WaitForSeconds(attackspd);
             RaycastHit[] hits = Physics.RaycastAll(transform.position, transform.forward, range, LayerMask.GetMask("Character"));
-            foreach (RaycastHit hit in hits)
+            if (entitySelf.GetIsActive())
             {
-                var entityOther = hit.collider.gameObject.GetComponent<BasicEntity>();
-                var otherHealth = hit.collider.gameObject.GetComponent<B_Health>();
-                var otherMana = hit.collider.gameObject.GetComponent<B_Mana>();
-                var selfMana = GetComponent<B_Mana>();
-                if (entityOther.GetIsEnemy()!=entitySelf.GetIsEnemy())
+                foreach (RaycastHit hit in hits)
                 {
-                    int atk = entitySelf.GetAttack();
-                    int def = entityOther.GetDef();
-                    int damage;
-                    if (atk>def)
+                    Debug.Log("coucou");
+                    var entityOther = hit.collider.gameObject.GetComponent<BasicEntity>();
+                    var otherHealth = hit.collider.gameObject.GetComponent<B_Health>();
+                    var otherMana = hit.collider.gameObject.GetComponent<B_Mana>();
+                    var selfMana = GetComponent<B_Mana>();
+                    if (entityOther.GetIsEnemy() != entitySelf.GetIsEnemy())
                     {
-                        damage = atk - def;
-                    } else
-                    {
-                        damage = 0;
+                        int atk = entitySelf.GetAttack();
+                        int def = entityOther.GetDef();
+                        int damage;
+                        if (atk > def)
+                        {
+                            damage = atk - def;
+                        }
+                        else
+                        {
+                            damage = 0;
+                        }
+                        otherHealth.damage(damage);
+                        otherMana.IncreaseMana();
+                        selfMana.IncreaseMana();
+                        break;
                     }
-                    otherHealth.damage(damage);
-                    otherMana.IncreaseMana();
-                    selfMana.IncreaseMana();
-                    break;
                 }
             }
         }

@@ -30,13 +30,25 @@ public class B_Movement : MonoBehaviour
     {
         UpdatePositionGoal();
         float distPositionGoalTarget = (agent.destination - positionGoal).magnitude;
+        if (!entitySelf.GetIsActive())
+        {
+            agent.enabled = false;
+        }
+        else
+        {
+            agent.enabled = true;
+            agent.speed = entitySelf.GetSpeed();
+        }
         if (distPositionGoalTarget >= distChange)
         {
             if (agent.hasPath)
             {
                 agent.ResetPath();
             }
-            agent.SetDestination(positionGoal);
+            if (agent.enabled)
+            {
+                agent.SetDestination(positionGoal);
+            }
         }
     }
 

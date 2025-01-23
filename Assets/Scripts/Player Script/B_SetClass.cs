@@ -6,16 +6,18 @@ public class B_SetClass : MonoBehaviour
     [SerializeField] private B_UnitClass[] ClassList;
     [SerializeField] private UnitClass unitClass;
     private Entity entity;
+    private SpecialAttack specialAttack;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         entity = GetComponent<BasicEntity>();
+        SetStats();
     }
 
     // Update is called once per frame
     void Update()
     {
-        SetStats();
+
     }
 
     private void SetStats()
@@ -29,25 +31,51 @@ public class B_SetClass : MonoBehaviour
             }
         }
         entity.SetMaxHP(ActualClass.maxHP);
+        entity.SetHP(ActualClass.maxHP);
         entity.SetSpeed(ActualClass.speed);
         entity.SetDef(ActualClass.def);
         entity.SetAttack(ActualClass.attack);
         entity.SetAttackSpeed(ActualClass.attackSpeed);
         entity.SetMaxMana(ActualClass.maxMana);
+        entity.SetMana(0);
         entity.SetCost(ActualClass.cost);
         entity.SetRange(ActualClass.range);
+        SetSpecialAttack();
     }
 
-    public B_UnitClass GetClass()
+    private void SetSpecialAttack()
     {
-        B_UnitClass ActualClass = ClassList[0];
-        foreach (B_UnitClass Class in ClassList)
+        switch (unitClass)
         {
-            if (Class.unitClass == unitClass)
-            {
-                ActualClass = Class;
-            }
+            case UnitClass.Mage:
+                specialAttack = gameObject.AddComponent(typeof(B_Explosion)) as B_Explosion;
+                break;
+            case UnitClass.Ninja:
+                specialAttack = gameObject.AddComponent(typeof(B_SpeedBoost)) as B_SpeedBoost;
+                break;
+            case UnitClass.Guerrier:
+                specialAttack = gameObject.AddComponent(typeof(B_Berserk)) as B_Berserk;
+                break;
+            case UnitClass.Healer:
+                specialAttack = gameObject.AddComponent(typeof(B_HealAllies)) as B_HealAllies;
+                break;
+            case UnitClass.Tank:
+                specialAttack = gameObject.AddComponent(typeof(B_Invulnerability)) as B_Invulnerability;
+                break;
+            case UnitClass.Archer:
+                specialAttack = gameObject.AddComponent(typeof(B_ShootProjectile)) as B_ShootProjectile;
+                break;
+            case UnitClass.Alcoolique:
+                specialAttack = gameObject.AddComponent(typeof(B_DrinkMana)) as B_DrinkMana;
+                break;
+            case UnitClass.Bob:
+                specialAttack = gameObject.AddComponent(typeof(B_Makarena)) as B_Makarena;
+                break;
         }
-        return ActualClass;
+    }
+
+    public SpecialAttack GetSpecialAttack()
+    {
+        return specialAttack;
     }
 }

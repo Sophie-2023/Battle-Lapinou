@@ -5,6 +5,7 @@ public class B_SetClass : MonoBehaviour
 {
     [SerializeField] private B_UnitClass[] ClassList;
     [SerializeField] private UnitClass unitClass;
+    [SerializeField] private GameObject projectile;
     private Entity entity;
     private SpecialAttack specialAttack;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -64,6 +65,10 @@ public class B_SetClass : MonoBehaviour
                 break;
             case UnitClass.Archer:
                 specialAttack = gameObject.AddComponent(typeof(B_ShootProjectile)) as B_ShootProjectile;
+                if (specialAttack is B_ShootProjectile specialAttackProjectile)
+                {
+                    specialAttackProjectile.setProjectile(projectile);
+                }
                 break;
             case UnitClass.Alcoolique:
                 specialAttack = gameObject.AddComponent(typeof(B_DrinkMana)) as B_DrinkMana;
@@ -77,5 +82,10 @@ public class B_SetClass : MonoBehaviour
     public SpecialAttack GetSpecialAttack()
     {
         return specialAttack;
+    }
+
+    public UnitClass GetClass()
+    {
+        return unitClass;
     }
 }

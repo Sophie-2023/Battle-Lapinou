@@ -236,8 +236,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.0289207, z: 1.026217}
-  m_Center: {x: 0, y: 0.015632868, z: 0.0131085515}
+  m_Size: {x: 1.0389779, y: 2.1175127, z: 1.026217}
+  m_Center: {x: 0.0020583868, y: -0.06026584, z: 0.0131085515}
 --- !u!195 &7687416665039975761
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -257,7 +257,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 1
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8410184704100059050
@@ -423,7 +423,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 673d72ea1dadde54ba8290f01850dda1, type: 2}
   - {fileID: 11400000, guid: 5cbcd523d98747b4aa7733a21f3460dc, type: 2}
   - {fileID: 11400000, guid: 42a9569270c52fc42867ecdb15797c4c, type: 2}
-  unitClass: 0
+  unitClass: 1
+  projectile: {fileID: 1505853167991705164, guid: 54408b5baffaea14e839a80fbb7fd523, type: 3}
 --- !u!1 &3350782666440354726
 GameObject:
   m_ObjectHideFlags: 0

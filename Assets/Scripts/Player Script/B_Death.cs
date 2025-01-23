@@ -11,10 +11,12 @@ public class B_Death : MonoBehaviour
     [SerializeField] private MeshRenderer HealthBarRenderer;
     [SerializeField] private MeshRenderer ManaBarRenderer;
     [SerializeField] private MeshRenderer ResteManaBarRenderer;
+    private B_SetClass classManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         entitySelf = GetComponent<BasicEntity>();
+        classManager = GetComponent<B_SetClass>();
     }
 
     // Update is called once per frame
@@ -53,6 +55,13 @@ public class B_Death : MonoBehaviour
             Color newColorResteManaBar = new Color(InitialcolorResteManaBar.r, InitialcolorResteManaBar.g, InitialcolorResteManaBar.b, Mathf.Lerp(1, 0, t));
             ResteManaBarRenderer.material.color = newColorResteManaBar;
             yield return new WaitForEndOfFrame();
+        }
+        if (classManager.GetClass()==UnitClass.Bob)
+        {
+            while (GetComponent<B_Makarena>().isDancingMakarena())
+            {
+                yield return new WaitForEndOfFrame();
+            }
         }
         Destroy(gameObject);
     }

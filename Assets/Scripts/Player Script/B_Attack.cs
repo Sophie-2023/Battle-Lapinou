@@ -38,7 +38,6 @@ public class B_Attack : MonoBehaviour
             {
                 foreach (RaycastHit hit in hits)
                 {
-                    Debug.Log("coucou");
                     var entityOther = hit.collider.gameObject.GetComponent<BasicEntity>();
                     var otherHealth = hit.collider.gameObject.GetComponent<B_Health>();
                     var otherMana = hit.collider.gameObject.GetComponent<B_Mana>();

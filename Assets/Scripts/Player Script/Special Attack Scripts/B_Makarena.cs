@@ -6,6 +6,7 @@ public class B_Makarena : MonoBehaviour, SpecialAttack
 {
     private float makarenaDuration = 5f;
     private float makarenaRange = 3f;
+    private bool DancingMakarena = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,7 +28,9 @@ public class B_Makarena : MonoBehaviour, SpecialAttack
 
     IEnumerator makarenaCoroutine(Entity entityself)
     {
+        DancingMakarena = true;
         var entityObjectsList = FindObjectsOfType(typeof(BasicEntity));
+
         foreach (var entityobj in entityObjectsList)
         {
             BasicEntity entityother = entityobj.GetComponent<BasicEntity>();
@@ -44,6 +47,7 @@ public class B_Makarena : MonoBehaviour, SpecialAttack
 
         yield return new WaitForSeconds(makarenaDuration);
 
+        entityObjectsList = FindObjectsOfType(typeof(BasicEntity));
         foreach (var entityobj in entityObjectsList)
         {
             BasicEntity entityother = entityobj.GetComponent<BasicEntity>();
@@ -57,5 +61,11 @@ public class B_Makarena : MonoBehaviour, SpecialAttack
             }
         }
         entityself.SetIsActive(true);
+        DancingMakarena = false;
+    }
+
+    public bool isDancingMakarena()
+    {
+        return DancingMakarena;
     }
 }

@@ -30,15 +30,7 @@ public class B_Movement : MonoBehaviour
     {
         UpdatePositionGoal();
         float distPositionGoalTarget = (agent.destination - positionGoal).magnitude;
-        if (!entitySelf.GetIsActive())
-        {
-            agent.enabled = false;
-        }
-        else
-        {
-            agent.enabled = true;
-            agent.speed = entitySelf.GetSpeed();
-        }
+        agent.speed = entitySelf.GetSpeed();
         if (distPositionGoalTarget >= distChange)
         {
             if (agent.hasPath)
@@ -139,6 +131,10 @@ public class B_Movement : MonoBehaviour
         } else
         {
             positionGoal = defaultGoal;
+        }
+        if (!entitySelf.GetIsActive())
+        {
+            positionGoal = transform.position;
         }
     }
 

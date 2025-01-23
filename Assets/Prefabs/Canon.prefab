@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5322069925236995043}
   - component: {fileID: 3103489594597650579}
   - component: {fileID: 8431405134596484708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +110,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &2259750596702618780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3124657577705510976}
+  m_Layer: 8
+  m_Name: SpawnMissile
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3124657577705510976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259750596702618780}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.09, y: 0.926, z: 2.091}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2702193857856562430}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4570221534534478619
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +153,7 @@ GameObject:
   - component: {fileID: 665733943915628337}
   - component: {fileID: 4094027496430669276}
   - component: {fileID: 4753591559604095511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +261,7 @@ GameObject:
   - component: {fileID: 8778379661892996241}
   - component: {fileID: 2352325013424436565}
   - component: {fileID: 1500252227754848444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pied
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +371,7 @@ GameObject:
   - component: {fileID: 5142213798158995071}
   - component: {fileID: 1528181514698813094}
   - component: {fileID: 1048307493290685252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -447,7 +478,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2702193857856562430}
-  m_Layer: 0
+  - component: {fileID: -6092652509339144345}
+  m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,8 +504,26 @@ Transform:
   - {fileID: 1156018524955927407}
   - {fileID: 3948485904703547145}
   - {fileID: 3192138301794729788}
+  - {fileID: 3124657577705510976}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6092652509339144345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042125274288287022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8810a7b887067fb409fa5817731ec1f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missile: {fileID: 119126309689365888, guid: daa706938a8d1974bbb92e9afec9fe0a, type: 3}
+  spawnTransform: {fileID: 3124657577705510976}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &6122314385321596312
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +536,7 @@ GameObject:
   - component: {fileID: 6914034287899851966}
   - component: {fileID: 4027050584760100643}
   - component: {fileID: 7978989818667602002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

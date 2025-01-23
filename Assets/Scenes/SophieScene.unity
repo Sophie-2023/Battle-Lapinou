@@ -142,18 +142,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52560699}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1773187739}
   - {fileID: 1704638771}
-  m_Father: {fileID: 1183673849}
+  m_Father: {fileID: 1833824272}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: 247.27408}
+  m_AnchoredPosition: {x: 450, y: 266.27408}
   m_SizeDelta: {x: 100, y: 139.4518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &215512467
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 334157785}
   - component: {fileID: 334157784}
   - component: {fileID: 334157783}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mur (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1011,6 +1011,7 @@ MonoBehaviour:
   defenseButton: {fileID: 1031407806}
   neutralButton: {fileID: 549734005}
   isKingButton: {fileID: 823906566}
+  boutique: {fileID: 1833824271}
   unitBoutique: []
 --- !u!1 &549734003
 GameObject:
@@ -1714,7 +1715,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1833824272}
-  - {fileID: 52560700}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2209,6 +2209,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2142361891}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 504242496}
+        m_TargetAssemblyTypeName: B_Boutique_UI_Manager, Assembly-CSharp
+        m_MethodName: CloseBoutique
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1457824305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2282,6 +2306,7 @@ MonoBehaviour:
   king: {fileID: 0}
   crownOfSelectedUnit: {fileID: 0}
   kingCrown: {fileID: 0}
+  isGameStarted: 0
 --- !u!4 &1497206197
 Transform:
   m_ObjectHideFlags: 0
@@ -2936,6 +2961,7 @@ RectTransform:
   - {fileID: 215512468}
   - {fileID: 400795639}
   - {fileID: 1457824303}
+  - {fileID: 52560700}
   m_Father: {fileID: 1183673849}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3595,10 +3621,10 @@ SceneRoots:
   - {fileID: 1716062687}
   - {fileID: 1502039673}
   - {fileID: 1183673849}
+  - {fileID: 1268123117853255825}
   - {fileID: 330088515}
   - {fileID: 702614526}
   - {fileID: 1497206197}
   - {fileID: 2142361892}
   - {fileID: 768839151}
   - {fileID: 504242495}
-  - {fileID: 1268123117853255825}

@@ -9,13 +9,16 @@ public class B_Boutique_UI_Manager : MonoBehaviour
     [SerializeField] private Button defenseButton;
     [SerializeField] private Button neutralButton;
     [SerializeField] private Button isKingButton;
+    [SerializeField] private GameObject boutique;
+
+    private B_LevelManager levelManager;
 
     [SerializeField] private List<Button> unitBoutique = new List<Button>();
     private Button previousUnitButton;
 
     void Start()
     {
-        
+        levelManager = B_LevelManager.Instance;
     }
 
     void Update()
@@ -25,7 +28,7 @@ public class B_Boutique_UI_Manager : MonoBehaviour
 
     public void SetButtonColor()
     {
-        GameObject selectedUnit = B_LevelManager.Instance.GetSelectedUnit();
+        GameObject selectedUnit = levelManager.GetSelectedUnit();
         BasicEntity basicEntity = selectedUnit.GetComponent<BasicEntity>();
 
         if (basicEntity.GetIsKing() == true)
@@ -67,6 +70,14 @@ public class B_Boutique_UI_Manager : MonoBehaviour
         unitButton.GetComponent<Image>().color = Color.yellow;
         previousUnitButton = unitButton;
 
+    }
+
+    public void CloseBoutique()
+    {
+        if (levelManager.GetIsGameStarted()) 
+        {
+            boutique.SetActive(false);
+        }
     }
 
 

@@ -4,6 +4,7 @@ public class B_MissileCanon : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
+    [SerializeField] private int degat;
 
     private Rigidbody rigi;
     void Start()
@@ -27,6 +28,14 @@ public class B_MissileCanon : MonoBehaviour
         if (LayerMask.LayerToName(collision.gameObject.layer) == "Obstacle")
         {
             Debug.Log("Missile détruit");
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.TryGetComponent<BasicEntity>(out BasicEntity entity)) 
+        { 
+            if (entity.GetIsEnemy()) 
+            {
+                entity.SetHP(entity.GetHP() - degat);
+            }
             Destroy(gameObject);
         }
     }

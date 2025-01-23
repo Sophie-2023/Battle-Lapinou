@@ -120,6 +120,7 @@ public class B_LevelManager : MonoBehaviour
         }
         else
         {
+            // Activer les ennemis
             isGameStarted = true;
             SetActivePlayerArmy();
             Debug.Log("Play !");

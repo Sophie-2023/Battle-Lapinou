@@ -156,7 +156,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  unitShadow: {fileID: 4978494805592383817}
   clickDuration: 0.2
   canBeMoved: 0
 --- !u!114 &-9142673510250781718

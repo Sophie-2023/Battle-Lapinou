@@ -4,6 +4,7 @@ using UnityEngine;
 public class B_LevelManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> playerArmy = new List<GameObject>();
+    [SerializeField] private List<GameObject> enemyArmy = new List<GameObject>();
     [SerializeField] private GameObject selectedUnit; // L'unité séléctionnée par le joueur lors de la préparation de la partie
     [SerializeField] private GameObject king;
     [SerializeField] private GameObject crownOfSelectedUnit; // La couronne en enfant de l'unité séléctionné
@@ -112,6 +113,14 @@ public class B_LevelManager : MonoBehaviour
         }
     }
 
+    private void SetActiveEnemyArmy()
+    {
+        foreach (GameObject unit in enemyArmy)
+        {
+            unit.GetComponent<BasicEntity>().SetIsActive(true);
+        }
+    }
+
     public void Play()
     {
         if (king == null)
@@ -120,9 +129,9 @@ public class B_LevelManager : MonoBehaviour
         }
         else
         {
-            // Activer les ennemis
             isGameStarted = true;
             SetActivePlayerArmy();
+            SetActiveEnemyArmy();
             Debug.Log("Play !");
         }
     }

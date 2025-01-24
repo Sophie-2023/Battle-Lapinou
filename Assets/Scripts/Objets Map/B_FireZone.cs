@@ -1,11 +1,8 @@
-using NUnit.Framework;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class B_HealthZone : B_InteractibleZone
+public class B_FireZone : B_InteractibleZone
 {
-    [SerializeField] private int healAmount;
+    [SerializeField] private int degat;
 
     private void Start()
     {
@@ -27,15 +24,15 @@ public class B_HealthZone : B_InteractibleZone
         base.UpdateBehavior();
     }
 
-    // Guérit toutes les entités (alliées ou ennemies) de la zone
+    // inflige des dégâts aux entités (alliées ou ennemies) de la zone
     public override void StartZoneAction()
     {
         foreach (BasicEntity entity in entitiesInZone)
         {
-            entity.SetHP(entity.GetHP() + healAmount);
-            if (entity.GetHP()> entity.GetMaxHP())
+            entity.SetHP(entity.GetHP() - degat);
+            if (entity.GetHP() < 0)
             {
-                entity.SetHP(entity.GetMaxHP());
+                entity.SetHP(0);
             }
         }
     }

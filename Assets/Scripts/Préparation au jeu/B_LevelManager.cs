@@ -11,6 +11,7 @@ public class B_LevelManager : MonoBehaviour
     [SerializeField] private GameObject kingCrown;
 
     [SerializeField] private bool isGameStarted = false;
+    [SerializeField] private bool isGameOver = false;
 
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
@@ -34,7 +35,10 @@ public class B_LevelManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (isGameStarted && !isGameOver && king == null )
+        {
+            GameOver();
+        }
     }
 
     public bool GetIsGameStarted()
@@ -134,5 +138,11 @@ public class B_LevelManager : MonoBehaviour
             SetActiveEnemyArmy();
             Debug.Log("Play !");
         }
+    }
+
+    private void GameOver()
+    {
+        Debug.Log("Vous avez perdu !");
+        isGameOver = true;
     }
 }

@@ -886,7 +886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missile: {fileID: 119126309689365888, guid: daa706938a8d1974bbb92e9afec9fe0a, type: 3}
   spawnTransform: {fileID: 3124657577705510976}
-  rechargeTime: 3
+  rechargeTime: 2
   layerMask:
     serializedVersion: 2
     m_Bits: 256

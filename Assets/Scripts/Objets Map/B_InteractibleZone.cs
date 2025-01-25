@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class B_InteractibleZone : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] protected ParticleSystem _particleSystem;
 
     private Camera _camera;
     [SerializeField] private LayerMask layerMask;
@@ -69,6 +69,7 @@ public class B_InteractibleZone : MonoBehaviour
         if (other.TryGetComponent<BasicEntity>(out BasicEntity entity))
         {
             entitiesInZone.Add(entity);
+            StartTriggerEnterAction(entity);
         }
     }
 
@@ -76,7 +77,19 @@ public class B_InteractibleZone : MonoBehaviour
     {
         if (entitiesInZone.Contains(other.GetComponent<BasicEntity>()))
         {
-            entitiesInZone.Remove(other.GetComponent<BasicEntity>());
+            BasicEntity entity = other.GetComponent<BasicEntity>();
+            entitiesInZone.Remove(entity);
+            StartTriggerExitAction(entity);
         }
+    }
+
+    public virtual void StartTriggerEnterAction(BasicEntity entity)
+    {
+
+    }
+
+    public virtual void StartTriggerExitAction(BasicEntity entity)
+    {
+
     }
 }

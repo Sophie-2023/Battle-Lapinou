@@ -1,14 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class B_LevelManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> playerArmy = new List<GameObject>();
-    [SerializeField] private List<GameObject> enemyArmy = new List<GameObject>();
+    [SerializeField] public List<GameObject> enemyArmy = new List<GameObject>();
+    [SerializeField] private List<GameObject> canonList = new List<GameObject>();
     [SerializeField] private GameObject selectedUnit; // L'unité séléctionnée par le joueur lors de la préparation de la partie
     [SerializeField] private GameObject king;
     [SerializeField] private GameObject crownOfSelectedUnit; // La couronne en enfant de l'unité séléctionné
     [SerializeField] private GameObject kingCrown;
+
+    [SerializeField] private GameObject boutiqueManager;
 
     [SerializeField] private bool isGameStarted = false;
     [SerializeField] private bool isGameOver = false;
@@ -114,6 +118,7 @@ public class B_LevelManager : MonoBehaviour
             unit.GetComponent<BasicEntity>().SetIsActive(true);
             unit.GetComponent<B_MoveUnit>().enabled = false;
             unit.GetComponent<Outline>().enabled = false;
+            unit.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
@@ -122,6 +127,16 @@ public class B_LevelManager : MonoBehaviour
         foreach (GameObject unit in enemyArmy)
         {
             unit.GetComponent<BasicEntity>().SetIsActive(true);
+            unit.GetComponent<Rigidbody>().isKinematic = false;
+            unit.GetComponent<NavMeshAgent>().enabled = true;
+        }
+    }
+
+    private void DesactivateCanonTrigger()
+    {
+        foreach (GameObject canon in canonList)
+        {
+            canon.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -133,7 +148,9 @@ public class B_LevelManager : MonoBehaviour
         }
         else
         {
+            boutiqueManager.SetActive(false);
             isGameStarted = true;
+            DesactivateCanonTrigger();
             SetActivePlayerArmy();
             SetActiveEnemyArmy();
             Debug.Log("Play !");

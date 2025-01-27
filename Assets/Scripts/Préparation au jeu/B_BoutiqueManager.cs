@@ -75,6 +75,7 @@ public class B_BoutiqueManager : MonoBehaviour
         else
         {
             GameObject newUnit = Instantiate(unitToCreate, position, Quaternion.identity);
+            newUnit.GetComponent<Rigidbody>().isKinematic = true;
             B_LevelManager.Instance.AddToPlayerArmy(newUnit);
             amountMoney -= unitPrice;
             if (amountMoney < 0) { amountMoney = 0; }

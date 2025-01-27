@@ -11,10 +11,14 @@ public class B_MoveUnit : MonoBehaviour
     [SerializeField] private bool canBeMoved = false;
     private Coroutine longClickCoroutine; // Référence à la coroutine en cours
     private BasicEntity basicEntity;
+
+    [SerializeField] private Transform spawnTransform;
+    [SerializeField] private bool isOnInetractible = false;
     void Start()
     {
         _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         basicEntity = gameObject.GetComponent<BasicEntity>();
+        spawnTransform = GameObject.Find("SpawnUnit").transform;
     }
 
     void Update()
@@ -48,6 +52,7 @@ public class B_MoveUnit : MonoBehaviour
         }
         canBeMoved = false;
         unitShadow.SetActive(false);
+        if (isOnInetractible) { transform.position = spawnTransform.position; }
     }
 
     private void MoveUnit()
@@ -67,6 +72,24 @@ public class B_MoveUnit : MonoBehaviour
         yield return new WaitForSeconds(clickDuration);
         canBeMoved = true;
         longClickCoroutine = null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(LayerMask.LayerToName(other.gameObject.layer) == "Interactible")
+        {
+            Debug.Log("Trigger");
+            isOnInetractible = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (LayerMask.LayerToName(other.gameObject.layer) == "Interactible")
+        {
+            Debug.Log("Exit");
+            isOnInetractible = false;
+        }
     }
 
 }

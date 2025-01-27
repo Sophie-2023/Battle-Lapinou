@@ -1,5 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +12,11 @@ public class B_Boutique_UI_Manager : MonoBehaviour
     [SerializeField] private Button neutralButton;
     [SerializeField] private Button isKingButton;
     [SerializeField] private GameObject boutique;
+
+    [SerializeField] private GameObject gameUI;
+    [SerializeField] private TextMeshProUGUI nbEnnemis;
+    [SerializeField] private TextMeshProUGUI timer;
+    private float startTime;
 
     private B_LevelManager levelManager;
 
@@ -23,7 +30,15 @@ public class B_Boutique_UI_Manager : MonoBehaviour
 
     void Update()
     {
-        
+        if (levelManager.GetIsGameStarted()) 
+        {
+            float time = Time.time - startTime;
+            int minutes = (int)(time / 60f);
+            int seconds = (int)(time % 60f);
+            timer.text = minutes + "m " + seconds + "s";
+
+            nbEnnemis.text = $"{levelManager.enemyArmy.Count()} ennemis restants";
+        }
     }
 
     public void SetButtonColor()
@@ -72,11 +87,13 @@ public class B_Boutique_UI_Manager : MonoBehaviour
 
     }
 
-    public void CloseBoutique()
+    public void StartGame()
     {
         if (levelManager.GetIsGameStarted()) 
         {
             boutique.SetActive(false);
+            gameUI.SetActive(true);
+            startTime = Time.time;
         }
     }
 

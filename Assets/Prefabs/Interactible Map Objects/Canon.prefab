@@ -843,6 +843,7 @@ GameObject:
   - component: {fileID: 2702193857856562430}
   - component: {fileID: -6092652509339144345}
   - component: {fileID: 5826121477897820832}
+  - component: {fileID: 3200145698780578188}
   m_Layer: 8
   m_Name: Canon
   m_TagString: Untagged
@@ -911,6 +912,27 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!65 &3200145698780578188
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042125274288287022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.8569936, y: 2.2666433, z: 2.825924}
+  m_Center: {x: 0.0013232827, y: 0.7981217, z: 0.50332665}
 --- !u!1 &6122314385321596312
 GameObject:
   m_ObjectHideFlags: 0

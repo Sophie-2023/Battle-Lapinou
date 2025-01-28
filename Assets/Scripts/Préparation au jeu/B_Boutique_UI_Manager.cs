@@ -16,6 +16,9 @@ public class B_Boutique_UI_Manager : MonoBehaviour
     [SerializeField] private GameObject gameUI;
     [SerializeField] private TextMeshProUGUI nbEnnemis;
     [SerializeField] private TextMeshProUGUI timer;
+    [SerializeField] private TextMeshProUGUI winTimer;
+    [SerializeField] private TextMeshProUGUI loseTimer; 
+
     private float startTime;
 
     private B_LevelManager levelManager;
@@ -32,13 +35,20 @@ public class B_Boutique_UI_Manager : MonoBehaviour
     {
         if (levelManager.GetIsGameStarted()) 
         {
-            float time = Time.time - startTime;
-            int minutes = (int)(time / 60f);
-            int seconds = (int)(time % 60f);
-            timer.text = minutes + "m " + seconds + "s";
-
-            nbEnnemis.text = $"{levelManager.enemyCount} ennemis restants";
+            UpdateUIinGame();
         }
+    }
+
+    public void UpdateUIinGame()
+    {
+        float time = Time.time - startTime;
+        int minutes = (int)(time / 60f);
+        int seconds = (int)(time % 60f);
+        timer.text = minutes + "m " + seconds + "s";
+        winTimer.text = minutes + "m " + seconds + "s";
+        loseTimer.text = minutes + "m " + seconds + "s";
+
+        nbEnnemis.text = $"{levelManager.enemyCount} ennemis restants";
     }
 
     public void SetButtonColor()

@@ -23,7 +23,8 @@ public class B_BoutiqueManager : MonoBehaviour
 
     void Start()
     {
-        amountMoney = B_GameData.Instance.currentMoney;
+        //amountMoney = B_GameData.Instance.currentMoney;
+        amountMoney = 100;
         _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         amountMoneyText.text = amountMoney.ToString() + " coins";
         PopulateShop();

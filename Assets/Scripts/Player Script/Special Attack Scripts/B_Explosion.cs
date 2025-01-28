@@ -36,12 +36,14 @@ public class B_Explosion : MonoBehaviour, SpecialAttack
         foreach (Object entityobj in entityObjectsList)
         {
             BasicEntity entityother = entityobj.GetComponent<BasicEntity>();
+            Rigidbody rbother = entityobj.GetComponent<Rigidbody>();
             if (entityother != entityself)
             {
                 float dist = (entityother.transform.position - entityself.transform.position).magnitude;
                 if (dist < explosionrange)
                 {
                     entityother.SetIsActive(false);
+                    rbother.isKinematic = false;
                     lst.Add(entityobj);
                 }
             }
@@ -53,7 +55,9 @@ public class B_Explosion : MonoBehaviour, SpecialAttack
             if (entityobj!=null)
             {
                 BasicEntity entityother = entityobj.GetComponent<BasicEntity>();
+                Rigidbody rbother = entityobj.GetComponent<Rigidbody>();
                 entityother.SetIsActive(true);
+                rbother.isKinematic = true;
             }
         }
     }

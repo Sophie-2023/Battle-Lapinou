@@ -17,6 +17,8 @@ public class B_LevelManager : MonoBehaviour
     [SerializeField] private bool isGameStarted = false;
     [SerializeField] private bool isGameOver = false;
 
+    public int enemyCount;
+
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
 
@@ -43,6 +45,22 @@ public class B_LevelManager : MonoBehaviour
         {
             GameOver();
         }
+
+        if (isGameOver)
+        {
+            CountEnemy();
+        }
+    }
+
+    private void CountEnemy()
+    {
+        int count = 0;
+        foreach (GameObject enemy in enemyArmy)
+        {
+            if (enemy != null)
+            { count++; }
+        }
+        enemyCount = count;
     }
 
     public bool GetIsGameStarted()

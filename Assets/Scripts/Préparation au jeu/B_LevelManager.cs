@@ -147,7 +147,7 @@ public class B_LevelManager : MonoBehaviour
             unit.GetComponent<BasicEntity>().SetIsActive(true);
             unit.GetComponent<B_MoveUnit>().enabled = false;
             unit.GetComponent<Outline>().enabled = false;
-            unit.GetComponent<Rigidbody>().isKinematic = false;
+            // unit.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
@@ -156,7 +156,7 @@ public class B_LevelManager : MonoBehaviour
         foreach (GameObject unit in enemyArmy)
         {
             unit.GetComponent<BasicEntity>().SetIsActive(true);
-            unit.GetComponent<Rigidbody>().isKinematic = false;
+            // unit.GetComponent<Rigidbody>().isKinematic = false;
             unit.GetComponent<NavMeshAgent>().enabled = true;
         }
     }

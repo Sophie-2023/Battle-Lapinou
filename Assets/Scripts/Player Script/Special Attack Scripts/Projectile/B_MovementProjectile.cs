@@ -34,7 +34,7 @@ public class B_MovementProjectile : MonoBehaviour
         if (isRising)
         {
             transform.rotation = Quaternion.LookRotation(Vector3.up, Vector3.up);
-            if ( (!seenByCamera()) && (transform.position.y >= maxheight) );
+            if ( (!seenByCamera()) && (transform.position.y >= maxheight) )
             {
                 isRising = false;
                 if (target != null)
@@ -75,14 +75,5 @@ public class B_MovementProjectile : MonoBehaviour
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
         return GeometryUtility.TestPlanesAABB(planes, col.bounds);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        if (target!=null)
-        {
-            Gizmos.DrawSphere(target.transform.position, 5);
-        }
     }
 }

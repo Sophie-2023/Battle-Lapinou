@@ -26,6 +26,8 @@ public class B_Attack : MonoBehaviour
     void Update()
     {
         alive = deathManager.isAlive(); 
+        range = entitySelf.GetRange();
+        attackspd = entitySelf.GetAttackSpeed();
     }
 
     private IEnumerator AttackCoroutine()

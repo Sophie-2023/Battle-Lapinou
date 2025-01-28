@@ -37,7 +37,7 @@ public class B_Boutique_UI_Manager : MonoBehaviour
             int seconds = (int)(time % 60f);
             timer.text = minutes + "m " + seconds + "s";
 
-            nbEnnemis.text = $"{levelManager.enemyArmy.Count()} ennemis restants";
+            nbEnnemis.text = $"{levelManager.enemyCount} ennemis restants";
         }
     }
 

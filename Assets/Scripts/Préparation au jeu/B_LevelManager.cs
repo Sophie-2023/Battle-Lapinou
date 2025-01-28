@@ -11,6 +11,7 @@ public class B_LevelManager : MonoBehaviour
     [SerializeField] private GameObject king;
     [SerializeField] private GameObject crownOfSelectedUnit; // La couronne en enfant de l'unité séléctionné
     [SerializeField] private GameObject kingCrown;
+    [SerializeField] private GameObject enemyKing;
 
     [SerializeField] private GameObject boutiqueManager;
 
@@ -18,6 +19,9 @@ public class B_LevelManager : MonoBehaviour
     [SerializeField] private bool isGameOver = false;
 
     public int enemyCount;
+    [SerializeField] private B_Boutique_UI_Manager UI_Manager;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject winPanel;
 
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
@@ -41,14 +45,21 @@ public class B_LevelManager : MonoBehaviour
 
     void Update()
     {
-        if (isGameStarted && !isGameOver && king == null )
-        {
-            GameOver();
-        }
 
-        if (isGameOver)
+        if (isGameStarted && !isGameOver)
         {
             CountEnemy();
+
+            if (king == null)
+            {
+                GameOver();
+            }
+
+            else if (enemyKing == null) 
+            {
+                UI_Manager.UpdateUIinGame();
+                Win();
+            }
         }
     }
 
@@ -150,6 +161,28 @@ public class B_LevelManager : MonoBehaviour
         }
     }
 
+    private void DesactivePlayerArmy()
+    {
+        foreach (GameObject unit in playerArmy)
+        {
+            if (unit != null)
+            {
+                unit.GetComponent<BasicEntity>().SetIsActive(false);
+            }
+        }
+    }
+
+    private void DesactiveEnemyArmy()
+    {
+        foreach (GameObject unit in enemyArmy)
+        {
+            if (unit != null)
+            {
+                unit.GetComponent<BasicEntity>().SetIsActive(false);
+            }
+        }
+    }
+
     private void DesactivateCanonTrigger()
     {
         foreach (GameObject canon in canonList)
@@ -179,5 +212,18 @@ public class B_LevelManager : MonoBehaviour
     {
         Debug.Log("Vous avez perdu !");
         isGameOver = true;
+        isGameStarted = false;
+        DesactivePlayerArmy();
+        DesactiveEnemyArmy();
+        gameOverPanel.SetActive(true);
+    }
+
+    private void Win()
+    {
+        Debug.Log("You win !");
+        isGameStarted = false;
+        DesactivePlayerArmy();
+        DesactiveEnemyArmy();
+        winPanel.SetActive(true);
     }
 }

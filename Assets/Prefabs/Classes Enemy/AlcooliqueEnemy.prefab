@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 287465469428813024, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1124356284390498889, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: m_Name
-      value: Unit (1) Variant 6
+      value: AlcooliqueEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 3822551670090516108, guid: 2787d6ef0a0abe44fa4157f6053d544d, type: 3}
       propertyPath: m_LocalPosition.x

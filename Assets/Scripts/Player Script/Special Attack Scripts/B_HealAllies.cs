@@ -17,6 +17,7 @@ public class B_HealAllies : MonoBehaviour, SpecialAttack
     }
 
     public void Execute(Entity entityself)
+    //Heal 50% des pv aux alliés à porté
     {
         Debug.Log("Attaque spéciale : Soin !");
         //L'unité soigne les alliés à porté

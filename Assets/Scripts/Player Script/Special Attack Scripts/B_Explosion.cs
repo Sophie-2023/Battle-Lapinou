@@ -21,6 +21,7 @@ public class B_Explosion : MonoBehaviour, SpecialAttack
     }
 
     public void Execute(Entity entityself)
+    //Déclenche une explosion qui éloigne les unités à porté
     {
         Debug.Log("Attaque spéciale : Souffle de la calamité !");
         //Les enemis et alliés à porté subissent une onde de choc

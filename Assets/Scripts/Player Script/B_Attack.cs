@@ -15,8 +15,8 @@ public class B_Attack : MonoBehaviour
     {
         alive = true;
         entitySelf = GetComponent<BasicEntity>();
-        range = entitySelf.GetRange();
-        attackspd = entitySelf.GetAttackSpeed();
+        range = entitySelf.GetRange(); //portée de l'attaque
+        attackspd = entitySelf.GetAttackSpeed(); //temps d'attente entre chaque attaque
         deathManager = GetComponent<B_Death>();
 
         StartCoroutine(AttackCoroutine());
@@ -31,6 +31,7 @@ public class B_Attack : MonoBehaviour
     }
 
     private IEnumerator AttackCoroutine()
+    //L'unité attaque tout les attackspd les unités ennemis à portée range devant elle
     {    
         while (alive)
         {

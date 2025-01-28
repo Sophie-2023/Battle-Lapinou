@@ -4,8 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(BasicEntity))]
 public class B_Mana : MonoBehaviour
 {
-    [SerializeField] private GameObject ManaBar;
-    [SerializeField] private GameObject RedBar;
+    [SerializeField] private GameObject ManaBar; //barre de mana
+    [SerializeField] private GameObject RedBar; //barre du reste de mana (maxMana - mana)
     private Entity entitySelf;
     private int Mana;
     private int maxMana;
@@ -33,6 +33,7 @@ public class B_Mana : MonoBehaviour
     }
 
     private void displayManaBar()
+    //Affiche la barre de mana
     {
         Mana = entitySelf.GetMana();
         float scaleBarMana = ((Mana * 1f) / (maxMana * 1f)) * scaleBar;
@@ -64,6 +65,7 @@ public class B_Mana : MonoBehaviour
     }
 
     private void SpecialAttack()
+    //execute l'attaque spéciale si la barre de mana est au max, puis la vide
     {
         Mana = entitySelf.GetMana();
         if (Mana>=maxMana)
@@ -77,6 +79,7 @@ public class B_Mana : MonoBehaviour
     }
 
     public void manaDrained()
+    //diminue le mana de 50% de maxMana, utilisée par l'attaque spéciale de l'alcoolique
     {
         Mana = entitySelf.GetMana();
         if (Mana<=(maxMana/2))

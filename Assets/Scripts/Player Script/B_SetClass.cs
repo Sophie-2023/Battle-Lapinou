@@ -23,6 +23,7 @@ public class B_SetClass : MonoBehaviour
 
     private void SetStats()
     {
+        //Modifie les statistiques en fonction de la classe
         B_UnitClass ActualClass = ClassList[0];
         foreach(B_UnitClass Class in ClassList) 
         { 
@@ -46,6 +47,7 @@ public class B_SetClass : MonoBehaviour
 
     private void SetSpecialAttack()
     {
+        //Ajoute l'attaque spéciale sous forme de component en fonction de la classe
         switch (unitClass)
         {
             case UnitClass.Mage:

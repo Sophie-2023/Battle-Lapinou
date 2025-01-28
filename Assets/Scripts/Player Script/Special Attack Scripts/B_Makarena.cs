@@ -20,6 +20,7 @@ public class B_Makarena : MonoBehaviour, SpecialAttack
     }
 
     public void Execute(Entity entityself)
+    //Rends l'unité et les unités adverses à porté temporairement inactives
     {
         Debug.Log("Attaque spéciale : Makarena !");
         //L'unité et les enemis à porté dansent temporairement la makarena 

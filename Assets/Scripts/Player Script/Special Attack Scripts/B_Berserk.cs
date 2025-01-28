@@ -19,6 +19,7 @@ public class B_Berserk : MonoBehaviour, SpecialAttack
     }
 
     public void Execute(Entity entityself)
+    //Augment temporairement l'attaque
     {
         Debug.Log("Attaque spéciale : Berserk mode !");
         //L'unité augmente temporairement son attaque

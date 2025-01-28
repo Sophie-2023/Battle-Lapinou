@@ -19,6 +19,7 @@ public class B_SpeedBoost : MonoBehaviour, SpecialAttack
 
     public void Execute(Entity entityself)
     {
+        //Augmente temporairement la vitesse
         Debug.Log("Attaque spéciale : L'éclaire de Konoha !");
         //L'unité augmente temporairement sa vitesse
         StartCoroutine(quickCoroutine(entityself));

@@ -34,6 +34,7 @@ public class B_Death : MonoBehaviour
     }
 
     private IEnumerator deathCoroutine()
+    //Fait mourir l'unité avec un fade
     {
         isDying = true;
         float t = 0;
@@ -57,6 +58,7 @@ public class B_Death : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         if (classManager.GetClass()==UnitClass.Bob)
+        //Empêche Bob d'être détruit avant d'avoir réactivé les unités qui dansent la makarena
         {
             while (GetComponent<B_Makarena>().isDancingMakarena())
             {

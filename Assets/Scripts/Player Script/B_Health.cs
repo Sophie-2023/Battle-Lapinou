@@ -27,6 +27,7 @@ public class B_Health : MonoBehaviour
     }
 
     private void displayHealthBar()
+    //Affiche la barre de vie
     {
         HP = entitySelf.GetHP();
         float scaleBarHP = ((HP * 1f) / (maxHP * 1f)) * scaleBar;
@@ -45,6 +46,7 @@ public class B_Health : MonoBehaviour
     }
 
     public void damage(int damage)
+    //S'auto inflige des dommages
     {
         HP = entitySelf.GetHP();
         if (damage<=HP)
@@ -70,6 +72,7 @@ public class B_Health : MonoBehaviour
     }
 
     public void halfHP()
+    //Divise les pv par 2, utilisée pour l'attaque spéciale de l'archer
     {
         HP = entitySelf.GetHP();
         entitySelf.SetHP(HP/2);

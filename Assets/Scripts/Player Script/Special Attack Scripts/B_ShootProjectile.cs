@@ -18,6 +18,7 @@ public class B_ShootProjectile : MonoBehaviour, SpecialAttack
     }
 
     public void Execute(Entity entityself)
+    //Tire un projectile vers le roi adverse, le projectile divise les points de vie par 2
     {
         Debug.Log("Attaque spéciale : Sniper !");
         //L'unité tire un projectile vers le roi adverse

@@ -17,6 +17,7 @@ public class B_DrinkMana : MonoBehaviour, SpecialAttack
     }
 
     public void Execute(Entity entityself)
+    //Draine 50% du mana des enemis à porté
     {
         //L'unité baisse le mana des ennemis à porté
         Debug.Log("Attaque spéciale : Cuite de Mana !");

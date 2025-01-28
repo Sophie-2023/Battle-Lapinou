@@ -29,6 +29,7 @@ public class B_MovementProjectile : MonoBehaviour
     }
 
     private void Move()
+    //Le projectile monte jusqu'à être suffisement haut et ne plus être visible par la camera, puis se téléporte au-dessus du roi adverse et le poursuit
     {
         rb.linearVelocity = speed * transform.forward;
         if (isRising)
@@ -62,6 +63,7 @@ public class B_MovementProjectile : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision)
+    //Lorsque le projectile atteint le roi adverse, il divise ses pv par 2
     {
         if (collision.gameObject==target)
         {
@@ -72,6 +74,7 @@ public class B_MovementProjectile : MonoBehaviour
     }
 
     private bool seenByCamera()
+    //Indique si le projectile est visible par la camera
     {
         Plane[] planes = GeometryUtility.CalculateFrustumPlanes(cam);
         return GeometryUtility.TestPlanesAABB(planes, col.bounds);

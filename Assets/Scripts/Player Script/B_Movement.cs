@@ -29,9 +29,9 @@ public class B_Movement : MonoBehaviour
     void Update()
     {
         UpdatePositionGoal();
-        float distPositionGoalTarget = (agent.destination - positionGoal).magnitude;
+        float distPositionGoalTarget = (agent.destination - positionGoal).magnitude; //distance entre la destination du navMesh agent et la véritable position de son objectif
         agent.speed = entitySelf.GetSpeed();
-        if (distPositionGoalTarget >= distChange)
+        if (distPositionGoalTarget >= distChange) //On ne change la destination que si l'unité visée s'en éloigne trop
         {
             if (agent.hasPath)
             {
@@ -47,7 +47,7 @@ public class B_Movement : MonoBehaviour
     private void UpdatePositionGoal()
     {
         var entityObjectsList = FindObjectsOfType(typeof(BasicEntity));
-        if (entitySelf.GetBehavior()==Entity.Behavior.Offense)
+        if (entitySelf.GetBehavior()==Entity.Behavior.Offense) //Si le comportement est offense, l'unité se rapproche du roi adverse, puis attaque l'unité ennemi la plus proche une fois qu'elle est suffisement proche du roi adverse
         {
             foreach (var entity in entityObjectsList)
             {
@@ -58,10 +58,10 @@ public class B_Movement : MonoBehaviour
                     {
                         var enemyKing = entity;
                         float distBetweenSelfAndGoal = (transform.position - enemyKing.GetComponent<Transform>().position).magnitude;
-                        if (distBetweenSelfAndGoal > distCrit)
+                        if (distBetweenSelfAndGoal > distCrit) //Cas où on se rapproche du roi adverse
                         {
                             positionGoal = enemyKing.GetComponent<Transform>().position;
-                        } else
+                        } else //Cas où on se rapproche de l'unité enemi la plus proche
                         {
                             Vector3 closestEnemyPosition = getClosestenemy().GetComponent<Transform>().position;
                             float distBetweenSelfAndClosestEnemy = (transform.position - closestEnemyPosition).magnitude;
@@ -80,7 +80,7 @@ public class B_Movement : MonoBehaviour
                     }
                 }
             }
-        } else if (entitySelf.GetBehavior() == Entity.Behavior.Neutral)
+        } else if (entitySelf.GetBehavior() == Entity.Behavior.Neutral) //Si le comportement est sur neutral, on cherche à se rapprocher de l'unité adverse la plus proche
         {
             positionGoal = getClosestenemy().GetComponent<Transform>().position;
             float distBetweenSelfAndClosestEnemy = (transform.position - positionGoal).magnitude;
@@ -92,7 +92,7 @@ public class B_Movement : MonoBehaviour
             {
                 agent.updateRotation = true;
             }
-        } else if (entitySelf.GetBehavior() == Entity.Behavior.Defense)
+        } else if (entitySelf.GetBehavior() == Entity.Behavior.Defense) //Si le comportement est defensee, l'unité se rapproche de son roi, puis attaque l'unité ennemi la plus proche une fois qu'elle est suffisement proche de son roi
         {
             foreach (var entity in entityObjectsList)
             {
@@ -103,11 +103,11 @@ public class B_Movement : MonoBehaviour
                     {
                         var myKing = entity;
                         float distBetweenSelfAndGoal = (transform.position - myKing.GetComponent<Transform>().position).magnitude;
-                        if (distBetweenSelfAndGoal > distCrit)
+                        if (distBetweenSelfAndGoal > distCrit) //Cas où on se rapproche de son roi
                         {
                             positionGoal = myKing.GetComponent<Transform>().position;
                         }
-                        else
+                        else //Cas où on se rapproche de l'unité enemi la plus proche
                         {
                             Vector3 closestEnemyPosition = getClosestenemy().GetComponent<Transform>().position;
                             float distBetweenSelfAndClosestEnemy = (transform.position - closestEnemyPosition).magnitude;
@@ -132,13 +132,13 @@ public class B_Movement : MonoBehaviour
         {
             positionGoal = defaultGoal;
         }
-        if (!entitySelf.GetIsActive())
+        if (!entitySelf.GetIsActive()) //L'unité ne bouge pas si elle est inactive
         {
             positionGoal = transform.position;
         }
     }
 
-    private Object getClosestenemy()
+    private Object getClosestenemy() //renvoie l'enemi le plus proche
     {
         var entityObjectsList = FindObjectsOfType(typeof(BasicEntity));
         var closestEnemy = entityObjectsList[0];

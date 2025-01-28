@@ -45,14 +45,17 @@ public class B_MoveUnit : MonoBehaviour
 
     private void OnMouseUp()
     {
-        if (longClickCoroutine != null)
+        if (basicEntity.GetIsActive() == false)
         {
-            StopCoroutine(longClickCoroutine);
-            longClickCoroutine = null;
+            if (longClickCoroutine != null)
+            {
+                StopCoroutine(longClickCoroutine);
+                longClickCoroutine = null;
+            }
+            canBeMoved = false;
+            unitShadow.SetActive(false);
+            if (isOnInetractible) { transform.position = spawnTransform.position; }
         }
-        canBeMoved = false;
-        unitShadow.SetActive(false);
-        if (isOnInetractible) { transform.position = spawnTransform.position; }
     }
 
     private void MoveUnit()
@@ -78,7 +81,6 @@ public class B_MoveUnit : MonoBehaviour
     {
         if(LayerMask.LayerToName(other.gameObject.layer) == "Interactible")
         {
-            Debug.Log("Trigger");
             isOnInetractible = true;
         }
     }
@@ -87,7 +89,6 @@ public class B_MoveUnit : MonoBehaviour
     {
         if (LayerMask.LayerToName(other.gameObject.layer) == "Interactible")
         {
-            Debug.Log("Exit");
             isOnInetractible = false;
         }
     }

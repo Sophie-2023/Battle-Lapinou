@@ -22,6 +22,7 @@ public class B_LevelManager : MonoBehaviour
     [SerializeField] private B_Boutique_UI_Manager UI_Manager;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject winPanel;
+    [SerializeField] private int winCoins;
 
     // Singleton pour accéder facilement au LevelManager depuis d'autres scripts
     public static B_LevelManager Instance;
@@ -147,7 +148,6 @@ public class B_LevelManager : MonoBehaviour
             unit.GetComponent<BasicEntity>().SetIsActive(true);
             unit.GetComponent<B_MoveUnit>().enabled = false;
             unit.GetComponent<Outline>().enabled = false;
-            // unit.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 
@@ -156,7 +156,6 @@ public class B_LevelManager : MonoBehaviour
         foreach (GameObject unit in enemyArmy)
         {
             unit.GetComponent<BasicEntity>().SetIsActive(true);
-            // unit.GetComponent<Rigidbody>().isKinematic = false;
             unit.GetComponent<NavMeshAgent>().enabled = true;
         }
     }
@@ -225,5 +224,6 @@ public class B_LevelManager : MonoBehaviour
         DesactivePlayerArmy();
         DesactiveEnemyArmy();
         winPanel.SetActive(true);
+        B_GameData.Instance.currentMoney += winCoins;
     }
 }

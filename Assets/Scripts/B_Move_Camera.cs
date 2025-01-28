@@ -9,11 +9,11 @@ public class B_Move_Camera : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.Translate(Vector3.forward * cameraSpeed);
+            transform.Translate(Vector3.up * cameraSpeed);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.Translate(Vector3.back * cameraSpeed);
+            transform.Translate(Vector3.down * cameraSpeed);
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -22,6 +22,14 @@ public class B_Move_Camera : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.right * cameraSpeed);
+        }
+        if (Input.GetKey(KeyCode.Q))
+        {
+            transform.Translate(Vector3.forward * cameraSpeed);
+        }
+        if (Input.GetKey(KeyCode.E))
+        {
+            transform.Translate(Vector3.back * cameraSpeed);
         }
 
         if (Input.GetMouseButton(1))

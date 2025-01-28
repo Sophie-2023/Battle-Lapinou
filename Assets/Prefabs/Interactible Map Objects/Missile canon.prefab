@@ -77,7 +77,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   lifeTime: 8
-  degat: 10
+  degat: 20
 --- !u!136 &3774156728477554083
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class B_GameData : MonoBehaviour
     public static B_GameData Instance;
 
     public int currentMoney;
+    public int currentDifficulty;
+    public int initialMoney;
 
     private void Awake()
     {

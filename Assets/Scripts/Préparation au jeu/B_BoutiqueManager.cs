@@ -7,6 +7,7 @@ public class B_BoutiqueManager : MonoBehaviour
 {
     private GameObject unitToCreate;
     [SerializeField] private int amountMoney;
+    private B_GameData gameData;
 
     private Camera _camera;
     [SerializeField] private LayerMask layerMask;
@@ -23,8 +24,9 @@ public class B_BoutiqueManager : MonoBehaviour
 
     void Start()
     {
-        //amountMoney = B_GameData.Instance.currentMoney;
-        amountMoney = 100;
+        gameData = B_GameData.Instance;
+        gameData.initialMoney = gameData.currentMoney;
+        amountMoney = B_GameData.Instance.currentMoney;
         _camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         amountMoneyText.text = amountMoney.ToString() + " coins";
         PopulateShop();
@@ -70,7 +72,7 @@ public class B_BoutiqueManager : MonoBehaviour
     private void BuyUnit(Vector3 position)
     {
         int unitPrice = unitToCreate.GetComponent<BasicEntity>().GetCost();
-        if (amountMoney < unitPrice)
+        if (gameData.currentMoney < unitPrice)
         {
             Debug.Log("Vous n'avez pas assez d'argent !");
         }
@@ -79,9 +81,9 @@ public class B_BoutiqueManager : MonoBehaviour
             GameObject newUnit = Instantiate(unitToCreate, position, Quaternion.identity);
             newUnit.GetComponent<Rigidbody>().isKinematic = true;
             B_LevelManager.Instance.AddToPlayerArmy(newUnit);
-            amountMoney -= unitPrice;
-            if (amountMoney < 0) { amountMoney = 0; }
-            amountMoneyText.text = amountMoney.ToString() + " coins";
+            gameData.currentMoney -= unitPrice;
+            if (gameData.currentMoney < 0) { gameData.currentMoney = 0; }
+            amountMoneyText.text = gameData.currentMoney.ToString() + " coins";
         }
     }
 
@@ -90,8 +92,8 @@ public class B_BoutiqueManager : MonoBehaviour
         GameObject unitToRemove = B_LevelManager.Instance.GetSelectedUnit();
         if (unitToRemove != null)
         {
-            amountMoney += unitToRemove.GetComponent<BasicEntity>().GetCost();
-            amountMoneyText.text = amountMoney.ToString() + " coins";
+            gameData.currentMoney += unitToRemove.GetComponent<BasicEntity>().GetCost();
+            amountMoneyText.text = gameData.currentMoney.ToString() + " coins";
             B_LevelManager.Instance.RemoveFromPlayerArmy();
             Destroy(unitToRemove);
         }

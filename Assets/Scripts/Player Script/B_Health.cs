@@ -75,6 +75,6 @@ public class B_Health : MonoBehaviour
     //Divise les pv par 2, utilisée pour l'attaque spéciale de l'archer
     {
         HP = entitySelf.GetHP();
-        entitySelf.SetHP(HP/2);
+        entitySelf.SetHP(Mathf.CeilToInt(HP/2f));
     }
 }
